@@ -106,26 +106,25 @@ https://www.flickr.com/photos/56053592@N00/6166620122
         <div class="codes">
           <div class="html">
         <pre class="language-markup"><code class="language-markup">&lt;div colorify>
-          &lt;img src="images/demo/image2.jpg" alt="">
-          &lt;img src="images/demo/image3.jpg" alt="">
-          &lt;img src="images/demo/miaou.jpg" alt="">
-          &lt;/div>
+    &lt;img src="images/demo/image2.jpg" alt="An image">
+    &lt;img src="images/demo/image3.jpg" alt="An other image">
+    &lt;img src="images/demo/miaou.jpg" alt="An other image">
+  &lt;/div>
         </code></pre>
       </div>
       <div class="javascript">
        <pre class="language-javascript"><code class="language-javascript">colorify({
-        id: 1,
-        container: 'colorify',
-        images: false,
-        accuracy: 100,
-        gradient: false,
-        gradientDirection: false,
-        padding: 4,
-        lazyReveal: false,
-        give: false,
-        revealOn: false
-      });
-    </code></pre>
+    id: 1,
+    container: 'colorify',
+    images: false,
+    accuracy: 100,
+    gradient: false,
+    gradientDirection: false,
+    padding: 4,
+    lazyReveal: false,
+    give: false,
+    revealOn: false
+  });</code></pre>
   </div>
         </div>
   <div class="result">
@@ -145,25 +144,25 @@ https://www.flickr.com/photos/56053592@N00/6166620122
      <div class="codes">
         <div class="html">
       <pre class="language-markup"><code class="language-markup">&lt;div colorify-dynamic>
-        &lt;/div>
+  &lt;/div>
       </code></pre>
     </div>
     <div class="javascript">
      <pre class="language-javascript"><code class="language-javascript">colorify({
-      id: 2,
-      container: 'colorify-dynamic',
-      images: [
-      'images/demo/image2.jpg',
-      'images/demo/image3.jpg',
-      'images/demo/miaou.jpg'],
-      accuracy: 100,
-      gradient: false,
-      gradientDirection: false,
-      padding: 4,
-      lazyReveal: false,
-      give: false,
-      revealOn: false
-    });</code></pre>
+    id: 2,
+    container: 'colorify-dynamic',
+    images: [
+    'images/demo/image2.jpg',
+    'images/demo/image3.jpg',
+    'images/demo/miaou.jpg'],
+    accuracy: 100,
+    gradient: false,
+    gradientDirection: false,
+    padding: 4,
+    lazyReveal: false,
+    give: false,
+    revealOn: false
+  });</code></pre>
   </div>
      </div>
   <div class="result">
@@ -180,25 +179,24 @@ https://www.flickr.com/photos/56053592@N00/6166620122
     <div class="codes">
       <div class="html">
     <pre class="language-markup"><code class="language-markup">&lt;div colorify-reveal>
-  &lt;img src="images/demo/image2.jpg" alt="">
-  &lt;img src="images/demo/image3.jpg" alt="">
-  &lt;img src="images/demo/miaou.jpg" alt="">
-&lt;/div>
-</code></pre>
+    &lt;img src="images/demo/image2.jpg" alt="">
+    &lt;img src="images/demo/image3.jpg" alt="">
+    &lt;img src="images/demo/miaou.jpg" alt="">
+  &lt;/div></code></pre>
   </div>
   <div class="javascript">
    <pre class="language-javascript"><code class="language-javascript">colorify({
-  id: 3,
-  images: false,
-  container: 'colorify-reveal',
-  lazyReveal: {
-    transition: 2,  // The transition occurs for 2 seconds
-    delay: 1
-  },
-  accuracy: 100,
-  gradient: false,
-  padding: 10
-});</code></pre>
+    id: 3,
+    images: false,
+    container: 'colorify-reveal',
+    lazyReveal: {
+      transition: 2,  // The transition occurs for 2 seconds
+      delay: 1
+    },
+    accuracy: 100,
+    gradient: false,
+    padding: 10
+  });</code></pre>
 </div>
 
     </div>
@@ -218,27 +216,27 @@ https://www.flickr.com/photos/56053592@N00/6166620122
     <div class="codes">
       <div class="html">
     <pre class="language-markup"><code class="language-markup">&lt;a href="javascript:void(0)" class="btn" id="demoEvent">Click me</a>
-&lt;div colorify-display>
-  &lt;img src="images/demo/image2.jpg" alt="">
-  &lt;img src="images/demo/image3.jpg" alt="">
-  &lt;img src="images/demo/miaou.jpg" alt="">
-&lt;/div>
+  &lt;div colorify-display>
+    &lt;img src="images/demo/image2.jpg" alt="">
+    &lt;img src="images/demo/image3.jpg" alt="">
+    &lt;img src="images/demo/miaou.jpg" alt="">
+  &lt;/div>
 </code></pre>
   </div>
   <div class="javascript">
    <pre class="language-javascript"><code class="language-javascript">colorify({
-  id: 4,
-  images: false,
-  container: 'colorify-display',
-  lazyReveal: false,
-  accuracy: 100,
-  gradient: false,
-  padding: 6,
-  revealOn: {
-    event: 'click',
-    trigger: '#demoEvent'
-  }
-});</code></pre>
+    id: 4,
+    images: false,
+    container: 'colorify-display',
+    lazyReveal: false,
+    accuracy: 100,
+    gradient: false,
+    padding: 6,
+    revealOn: {
+      event: 'click',
+      trigger: '#demoEvent'
+    }
+  });</code></pre>
 </div>
     </div>
 
@@ -256,33 +254,33 @@ https://www.flickr.com/photos/56053592@N00/6166620122
 <section id="demoManipulate" class="demo">
   <header><h2>Manipulates color</h2></header>
   <div class="alert">
-    <p>As <code>target</code> you can use : <strong>a Class</strong>, <strong>an ID</strong>, All occurences (<strong>*</strong>), <strong>[attribute]</strong></p>
+    <p>As <code>target</code> you can use : <strong>a Class</strong>, <strong>an ID</strong>, All occurences (<strong>*</strong>), <strong>[attribute]</strong>.</p>
+    <p>You can aslo use these two keywords : <code>parent</code> & <code>children</code>.</p>
   </div>
 
   <div class="sample">
    <div class="codes">
       <div class="html">
     <pre class="language-markup"><code class="language-markup">&lt;div colorify-manipulate>
-  &lt;h3 class=".demo-title">A title&lt;/h3>
-  &lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta itaque facere repellat cupiditate sed expedita eaque porro at voluptates, nostrum enim, voluptatibus, dignissimos magnam quo nobis ullam a molestiae? Et.&lt;/p>
-  &lt;img src="images/demo/test.png" colorify-manipulate/>
-&lt;/div>
-</code></pre>
+    &lt;h3 class=".demo-title">A title&lt;/h3>
+    &lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta itaque facere repellat cupiditate sed expedita eaque porro at voluptates, nostrum enim, voluptatibus, dignissimos magnam quo nobis ullam a molestiae? Et.&lt;/p>
+    &lt;img src="images/demo/test.png" colorify-manipulate/>
+  &lt;/div></code></pre>
   </div>
   <div class="javascript">
    <pre class="language-javascript"><code class="language-javascript">colorify({
-  id: 5,
-  container: 'colorify-manipulate',
-  lazyReveal: false,
-  accuracy: 100,
-  gradient: false,
-  padding: 4,
-  revealOn: false,
-  give: {
-    property: 'color',
-    target: '.demo-title'
-  }
-});</code></pre>
+    id: 5,
+    container: 'colorify-manipulate',
+    lazyReveal: false,
+    accuracy: 100,
+    gradient: false,
+    padding: 4,
+    revealOn: false,
+    give: {
+      property: 'color',
+      target: '.demo-title'
+    }
+  });</code></pre>
 </div>
    </div>
 
@@ -312,13 +310,13 @@ https://www.flickr.com/photos/56053592@N00/6166620122
   </div>
   <div class="javascript">
    <pre class="language-javascript"><code class="language-javascript">colorify({
-  id: 6,
-  container: 'colorify-get-color',
-  lazyReveal: false,
-  accuracy: 100,
-  gradient: false,
-  padding: 4
-});</code></pre>
+    id: 6,
+    container: 'colorify-get-color',
+    lazyReveal: false,
+    accuracy: 100,
+    gradient: false,
+    padding: 4
+  });</code></pre>
 </div>
 </div>
 
@@ -339,13 +337,13 @@ https://www.flickr.com/photos/56053592@N00/6166620122
   </div>
   <div class="javascript">
    <pre class="language-javascript"><code class="language-javascript">colorify({
-  id: 7,
-  container: 'colorify-get-gradient',
-  lazyReveal: false,
-  accuracy: 100,
-  gradient: true,
-  padding: 4
-});</code></pre>
+    id: 7,
+    container: 'colorify-get-gradient',
+    lazyReveal: false,
+    accuracy: 100,
+    gradient: true,
+    padding: 4
+  });</code></pre>
 </div>
 
 </div>

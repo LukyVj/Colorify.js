@@ -14,8 +14,9 @@
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscaled;
-  font-weight: 300 !important; }
+  -moz-osx-font-smoothing: grayscaled; }
+  *:not(strong) {
+    font-weight: 300 !important; }
 
 html, body {
   width: 100%;

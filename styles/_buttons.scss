@@ -1,0 +1,38 @@
+
+.btn {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  padding: 9px 13px 7px 14px;
+  margin: 8px;
+  width: auto;
+  
+  position: relative;
+  text-decoration: none;
+  @extend %bs-1;
+  transition: all 0.25s ease;
+  border-radius: 60px;
+  color: dodgerblue;
+
+  &:hover {
+    @extend %bs-3;
+  }
+  
+
+  &-info {
+    color: #fff;
+    background: $blue;
+  }
+  .hero-header &{
+    max-width: 260px;
+    width: 100%;
+    margin: 1em auto;
+    background: #fff;
+    color: $blue;
+    float: none;
+    top: 30px;
+  }
+
+}

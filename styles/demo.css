@@ -1,0 +1,8 @@
+.demo {
+  border-bottom: 2px solid #ccc; }
+  .demo .html, .demo .javascript {
+    width: 50%;
+    float: left; }
+  .demo .result img {
+    max-width: 200px;
+    float: left; }

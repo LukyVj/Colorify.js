@@ -1,0 +1,116 @@
+// ----
+// libsass (v3.2.5)
+// ----
+
+
+$view: "Current view";
+
+// Other size
+$sidebar-width: 280px;
+
+/// # BREAKPOINTS
+$bp-s: 640px;
+$bp-m: 960px;
+$bp-w: $bp-s * 2;
+
+/// # CONTAINERS BREAKPOINTS
+/// $bpc : breakpoint container
+$bpc-s: $sidebar-width + 500;
+$bpc-m: $sidebar-width + 620;
+$bpc-w: $sidebar-width + 720;
+
+$ON: true;
+$view: "Current view";
+$thumbColor: rebeccapurple;
+
+$c-blueSleek: #415FD9;
+$c-actionBlue: #4285f4;
+$c-yellow: #FFC234;
+$c-yellorange: #ffc234;
+$c-green: #4BC57A;
+$c-orange: #FB9071;
+$c-red: #ff6868;
+$c-lightblue: #59ADEB;
+$c-dodgerBlue: #4285f4;
+$c-darkGray: #343B45;
+
+@mixin debugBreakpoint($bg, $color: #FFF, $posY: top, $posX: left) {
+  position: fixed;
+  z-index: 99999999;
+  background: saturate(lighten($bg, 6%), 20%);
+  display: inline-block;
+  box-shadow:0 10px 20px rgba(0,0,0,.19),0 6px 6px rgba(0,0,0,.23);
+  border-radius: 3px;
+  margin: 8px;
+  @if $posY == top {
+    top: 0;
+  }
+  @else {
+    bottom: 0;
+  }
+  @if $posX == left {
+    left: 0;
+  }
+  @else {
+    right: 0;
+  }
+  @if $thumbColor == #fff or $thumbColor == #FFF or $thumbColor == #FFFFFF or $thumbColor == #ffffff {
+    background: #000;
+  }
+  color: #fff;
+  @if $thumbColor == #FFF or $bg == $c-yellow {
+    color: #000;
+  }
+  @else {
+    color: #{$color};
+  }
+}
+
+@if $ON == true {
+  html:before {
+    font-weight: 400;
+    padding: 0.5em 1em;
+  }
+  @media screen and (min-width: $bp-w) {
+    html:before {
+      content: "#{$view} : $bp-w";
+      @include debugBreakpoint($c-blueSleek, #fff, bottom, right);
+    }
+  }
+  @media screen and (max-width: $bp-w) {
+    html:before {
+      content: "#{$view} : $bpc-w";
+      @include debugBreakpoint($c-yellow);
+    }
+  }
+  @media screen and (max-width: $bpc-w) {
+    html:before {
+      content: "#{$view} : $bp-m";
+      @include debugBreakpoint($c-green);
+    }
+  }
+  @media screen and (max-width: $bp-m) {
+    html:before {
+      content: "#{$view} : $bpc-m";
+      @include debugBreakpoint($c-orange);
+    }
+  }
+  @media screen and (max-width: $bpc-m) {
+    html:before {
+      content: "#{$view} : $bpc-s";
+      @include debugBreakpoint($c-red);
+    }
+  }
+  @media screen and (max-width: $bpc-s) {
+    html:before {
+      content: "#{$view} : $bpc-s";
+      @include debugBreakpoint($c-dodgerBlue);
+    }
+  }
+  @media screen and (max-width: $bp-s) {
+    html:before {
+      content: "#{$view} : $bp-s";
+      @include debugBreakpoint($c-darkGray);
+    }
+  }
+}

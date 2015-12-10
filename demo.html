@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Colorify.js</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/prism.css">
+</head>
+
+<!-- 
+Cover photos by order : 
+https://www.flickr.com/photos/50122097@N00/4236749844
+https://www.flickr.com/photos/67961268@N00/283994079
+https://www.flickr.com/photos/80547277@N00/365570308
+https://www.flickr.com/photos/34409164@N06/3618324994
+https://www.flickr.com/photos/56053592@N00/6166620122
+-->
+
+<body id="body">
+  <div id="minHeader">
+    <header class="hero-header">
+      <h2><span>C</span><span>o</span><span>l</span><span>o</span><span>r</span><span>i</span><span>f</span><span>y</span><span>.</span><span>j</span><span>s</span></h2>
+    </header>
+
+    <div class="colors"></div>
+  </div>
+  <nav>
+    <div class="control">
+      <a href="#" id="closeNav"><span class="icon -close"><<</span></a>
+    </div>
+    <div class="menu">
+     <header class="hero-header">
+      <h1><span>C</span><span>o</span><span>l</span><span>o</span><span>r</span><span>i</span><span>f</span><span>y</span><span>.</span><span>j</span><span>s</span></h1>
+    </header>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#documentation">Documentation</a>
+        <ul class="doc">
+          <li><a href="index.html#installation">Installation</a></li>
+          <li><a href="index.html#defaultConfig">Default config</a></li>
+          <li><a href="index.html#loadImagesDynamically">Load images dynamically</a></li>
+          <li><a href="index.html#getMainColor">Get main color</a></li>
+          <li><a href="index.html#getGradient">Get Gradient</a></li>
+          <li><a href="index.html#lazyReveal">Lazy-reveal</a></li>
+          <li><a href="index.html#displayOnEvent">Display on event</a></li>
+          <li><a href="index.html#manipulatesColor">Manipulates color</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#api">API</a></li>
+      <li><a href="demo.html">Demo</a></li>
+      <li class="bottom">
+        <li><a href="https://github.com/LukyVj/Colorify.js">Github</a></li>
+        <li><a href="about.html">About</a></li>
+      </li>
+    </ul>
+    <footer>
+      <div class="share">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="lukyvj" data-size="large" data-hashtags="colorifyJs">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <span class="icon -tools">Made</span> with <span class="icon -love">♥</span> by <a href="http://twitter.com/lukyvj"><strong><span>@</span><span>L</span><span>u</span><span>k</span><span>y</span><span>V</span><span>j</span></strong></a>
+    </footer>
+  </div>
+
+
+</nav>
+
+<header id="header" class="">
+  <span class="orange-block"></span>
+  <span class="red-block"></span>
+  <span class="purple-block"></span>
+  <span class="blue-block"></span>
+  <span class="green-block"></span>
+
+  <div class="hero-header">
+    <div class="hero-title">
+      <h1>Colorify.js</h1>
+
+      <h2>Demos</h2>
+
+      <a href="index.html" class="btn btn-info">Home</a>
+    </div>
+  </div>
+</header>
+
+
+
+<div class="content">
+<div  id="demos">
+  <header>
+    <h2>Demos</h2>
+  </header>
+  <ul>
+    <li>Default config</li>
+    <li>Load images dynamically</li>
+    <li>Get main color</li>
+    <li>Get Gradient</li>
+    <li>Lazy-reveal</li>
+    <li>Display on event</li>
+    <li>Manipulates color</li>
+  </ul>
+
+
+
+  <section id="demoDefault" class="demo">    
+    <div class="sample">
+        <div class="codes">
+          <div class="html">
+        <pre class="language-markup"><code class="language-markup">&lt;div colorify>
+          &lt;img src="images/demo/image2.jpg" alt="">
+          &lt;img src="images/demo/image3.jpg" alt="">
+          &lt;img src="images/demo/miaou.jpg" alt="">
+          &lt;/div>
+        </code></pre>
+      </div>
+      <div class="javascript">
+       <pre class="language-javascript"><code class="language-javascript">colorify({
+        id: 1,
+        container: 'colorify',
+        images: false,
+        accuracy: 100,
+        gradient: false,
+        gradientDirection: false,
+        padding: 4,
+        lazyReveal: false,
+        give: false,
+        revealOn: false
+      });
+    </code></pre>
+  </div>
+        </div>
+  <div class="result">
+    <div colorify>
+      <img src="images/demo/image2.jpg" alt="">
+      <img src="images/demo/image3.jpg" alt="">
+      <img src="images/demo/miaou.jpg" alt="">
+    </div>
+  </div>
+    </div>
+</section>
+
+<section id="demoDynamic" class="demo">
+  <header><h2>Load Images Dynamically</h2></header>
+  
+  <div class="sample">
+     <div class="codes">
+        <div class="html">
+      <pre class="language-markup"><code class="language-markup">&lt;div colorify-dynamic>
+        &lt;/div>
+      </code></pre>
+    </div>
+    <div class="javascript">
+     <pre class="language-javascript"><code class="language-javascript">colorify({
+      id: 2,
+      container: 'colorify-dynamic',
+      images: [
+      'images/demo/image2.jpg',
+      'images/demo/image3.jpg',
+      'images/demo/miaou.jpg'],
+      accuracy: 100,
+      gradient: false,
+      gradientDirection: false,
+      padding: 4,
+      lazyReveal: false,
+      give: false,
+      revealOn: false
+    });</code></pre>
+  </div>
+     </div>
+  <div class="result">
+    <div colorify-dynamic>
+
+    </div>
+  </div>
+  </div>
+</section>
+
+<section id="demoReveal" class="demo">
+  <header><h2>Lazy Reveal</h2></header>
+  <div class="sample">
+    <div class="codes">
+      <div class="html">
+    <pre class="language-markup"><code class="language-markup">&lt;div colorify-reveal>
+  &lt;img src="images/demo/image2.jpg" alt="">
+  &lt;img src="images/demo/image3.jpg" alt="">
+  &lt;img src="images/demo/miaou.jpg" alt="">
+&lt;/div>
+</code></pre>
+  </div>
+  <div class="javascript">
+   <pre class="language-javascript"><code class="language-javascript">colorify({
+  id: 3,
+  images: false,
+  container: 'colorify-reveal',
+  lazyReveal: {
+    transition: 2,  // The transition occurs for 2 seconds
+    delay: 1
+  },
+  accuracy: 100,
+  gradient: false,
+  padding: 10
+});</code></pre>
+</div>
+
+    </div>
+<div class="result">
+  <div colorify-reveal>
+    <img src="images/demo/image2.jpg" alt="">
+    <img src="images/demo/image3.jpg" alt="">
+    <img src="images/demo/miaou.jpg" alt="">
+  </div>
+</div>
+  </div>
+</section>
+
+<section id="demoDisplay" class="demo">
+  <header><h2>Display on Event</h2></header>
+  <div class="sample">
+    <div class="codes">
+      <div class="html">
+    <pre class="language-markup"><code class="language-markup">&lt;a href="javascript:void(0)" class="btn" id="demoEvent">Click me</a>
+&lt;div colorify-display>
+  &lt;img src="images/demo/image2.jpg" alt="">
+  &lt;img src="images/demo/image3.jpg" alt="">
+  &lt;img src="images/demo/miaou.jpg" alt="">
+&lt;/div>
+</code></pre>
+  </div>
+  <div class="javascript">
+   <pre class="language-javascript"><code class="language-javascript">colorify({
+  id: 4,
+  images: false,
+  container: 'colorify-display',
+  lazyReveal: false,
+  accuracy: 100,
+  gradient: false,
+  padding: 6,
+  revealOn: {
+    event: 'click',
+    trigger: '#demoEvent'
+  }
+});</code></pre>
+</div>
+    </div>
+
+<div class="result">
+  <a href="javascript:void(0)" class="btn" id="demoEvent">Click me</a>
+  <div colorify-display>
+    <img src="images/demo/image2.jpg" alt="">
+    <img src="images/demo/image3.jpg" alt="">
+    <img src="images/demo/miaou.jpg" alt="">
+  </div>
+</div>
+  </div>
+</section>
+
+<section id="demoManipulate" class="demo">
+  <header><h2>Manipulates color</h2></header>
+  <div class="alert">
+    <p>As <code>target</code> you can use : <strong>a Class</strong>, <strong>an ID</strong>, All occurences (<strong>*</strong>), <strong>[attribute]</strong></p>
+  </div>
+
+  <div class="sample">
+   <div class="codes">
+      <div class="html">
+    <pre class="language-markup"><code class="language-markup">&lt;div colorify-manipulate>
+  &lt;h3 class=".demo-title">A title&lt;/h3>
+  &lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta itaque facere repellat cupiditate sed expedita eaque porro at voluptates, nostrum enim, voluptatibus, dignissimos magnam quo nobis ullam a molestiae? Et.&lt;/p>
+  &lt;img src="images/demo/test.png" colorify-manipulate/>
+&lt;/div>
+</code></pre>
+  </div>
+  <div class="javascript">
+   <pre class="language-javascript"><code class="language-javascript">colorify({
+  id: 5,
+  container: 'colorify-manipulate',
+  lazyReveal: false,
+  accuracy: 100,
+  gradient: false,
+  padding: 4,
+  revealOn: false,
+  give: {
+    property: 'color',
+    target: '.demo-title'
+  }
+});</code></pre>
+</div>
+   </div>
+
+<div class="result">
+ <div colorify-manipulate>
+  <h3 class="demo-title">A title</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta itaque facere repellat cupiditate sed expedita eaque porro at voluptates, nostrum enim, voluptatibus, dignissimos magnam quo nobis ullam a molestiae? Et.</p>
+  <img src="images/demo/miaou.jpg"/>
+</div>
+</div>
+  </div>
+
+</section>
+
+<section id="demoColor" class="demo">
+  <header><h2>Get Color / Get Gradient</h2></header>
+ 
+<div class="sample">
+  
+<div class="codes">
+  
+  <div class="html">
+    <pre class="language-markup"><code class="language-markup">&lt;div colorify-get-color>
+ &lt;img src="images/demo/deer.jpeg">
+&lt;/div>
+</code></pre>
+  </div>
+  <div class="javascript">
+   <pre class="language-javascript"><code class="language-javascript">colorify({
+  id: 6,
+  container: 'colorify-get-color',
+  lazyReveal: false,
+  accuracy: 100,
+  gradient: false,
+  padding: 4
+});</code></pre>
+</div>
+</div>
+
+<div class="result">
+ <div colorify-get-color>
+  <img src="images/demo/deer.jpeg"/>
+</div>
+</div>
+
+
+<div class="codes">
+  
+  <div class="html">
+    <pre class="language-markup"><code class="language-markup">&lt;div colorify-get-gradient>
+ &lt;img src="images/demo/deer.jpeg">
+&lt;/div>
+</code></pre>
+  </div>
+  <div class="javascript">
+   <pre class="language-javascript"><code class="language-javascript">colorify({
+  id: 7,
+  container: 'colorify-get-gradient',
+  lazyReveal: false,
+  accuracy: 100,
+  gradient: true,
+  padding: 4
+});</code></pre>
+</div>
+
+</div>
+<div class="result">
+ <div colorify-get-gradient>
+  <img src="images/demo/HausderKulturen.jpeg"/>
+</div>
+</div>
+</div>
+
+</section>
+</div>
+</div>
+
+<script src="scripts/app.js"></script>
+
+<script src="src/colorify.js"></script>
+<script>
+  
+colorify({
+  id: 1,
+  container: 'colorify',
+  images: false,
+  accuracy: 100,
+  gradient: false,
+  gradientDirection: false,
+  padding: 4,
+  lazyReveal: false,
+  give: false,
+  revealOn: false
+});
+
+colorify({
+  id: 2,
+  container: 'colorify-dynamic',
+  images: [
+  'images/demo/image2.jpg',
+  'images/demo/image3.jpg',
+  'images/demo/miaou.jpg'],
+  accuracy: 100,
+  gradient: false,
+  gradientDirection: false,
+  padding: 4,
+  lazyReveal: false,
+  give: false,
+  revealOn: false
+});
+
+colorify({
+  id: 3,
+  images: false,
+  container: 'colorify-reveal',
+  lazyReveal: {
+    transition: 2,  // The transition occurs for 2 seconds
+    delay: 1
+  },
+  accuracy: 100,
+  gradient: false,
+  padding: 10
+});
+
+colorify({
+  id: 4,
+  images: false,
+  container: 'colorify-display',
+  lazyReveal: false,
+  accuracy: 100,
+  gradient: false,
+  padding: 6,
+  revealOn: {
+    event: 'click',
+    trigger: '#demoEvent'
+  }
+});
+
+colorify({
+  id: 5,
+  container: 'colorify-manipulate',
+  lazyReveal: false,
+  accuracy: 100,
+  gradient: false,
+  padding: 4,
+  give: {
+    property: 'color',
+    target: '.demo-title'
+  },
+  revealOn: false
+});
+
+colorify({
+  id: 6,
+  container: 'colorify-get-color',
+  lazyReveal: false,
+  accuracy: 100,
+  gradient: false,
+  padding: 4
+});
+
+colorify({
+  id: 7,
+  container: 'colorify-get-gradient',
+  lazyReveal: false,
+  accuracy: 100,
+  gradient: true,
+  padding: 6
+});
+</script>
+
+</body>
+</html>

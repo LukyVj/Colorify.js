@@ -1,0 +1,24 @@
+.icon {
+  display: inline-block;
+  width: 16px;
+  padding: 0 4px;
+  text-indent: -9999px;
+  transition: transform 0.3s ease;
+  will-change: transform;
+
+  &.-love {
+    background: url('../images/SVG/heart.svg')no-repeat center center / contain;
+  }
+
+  &.-tools{
+    background: url('../images/SVG/tools.svg')no-repeat center center / contain; 
+  }
+
+  &.-close{
+    background: url('../images/SVG/close.svg')no-repeat center center / contain; 
+  }
+
+  &.flip {
+    transform: rotate(180deg) !important;
+  }
+}

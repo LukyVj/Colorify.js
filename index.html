@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Colorify.js</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/prism.css">
+
+</head>
+
+<!-- 
+Cover photos by order : 
+https://www.flickr.com/photos/50122097@N00/4236749844
+https://www.flickr.com/photos/67961268@N00/283994079
+https://www.flickr.com/photos/80547277@N00/365570308
+https://www.flickr.com/photos/34409164@N06/3618324994
+https://www.flickr.com/photos/56053592@N00/6166620122
+-->
+
+<body id="body">
+<div id="minHeader">
+  <header class="hero-header">
+    <h2><span>C</span><span>o</span><span>l</span><span>o</span><span>r</span><span>i</span><span>f</span><span>y</span><span>.</span><span>j</span><span>s</span></h2>
+  </header>
+ 
+  <div class="colors"></div>
+</div>
+<nav>
+  <div class="control">
+    <a href="#" id="closeNav"><span class="icon -close"><<</span></a>
+  </div>
+  <div class="menu">
+     <header class="hero-header">
+        <h1><span>C</span><span>o</span><span>l</span><span>o</span><span>r</span><span>i</span><span>f</span><span>y</span><span>.</span><span>j</span><span>s</span></h1>
+     </header>
+     <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#documentation">Documentation</a>
+        <ul class="doc">
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#defaultConfig">Default config</a></li>
+        <li><a href="#loadImagesDynamically">Load images dynamically</a></li>
+        <li><a href="#getMainColor">Get main color</a></li>
+        <li><a href="#getGradient">Get Gradient</a></li>
+        <li><a href="#lazyReveal">Lazy-reveal</a></li>
+        <li><a href="#displayOnEvent">Display on event</a></li>
+        <li><a href="#manipulatesColor">Manipulates color</a></li>
+      </ul>
+      </li>
+     <li><a href="index.html#api">API</a></li>
+      <li><a href="demo.html">Demo</a></li>
+      <li class="bottom">
+        <li><a href="https://github.com/LukyVj/Colorify.js">Github</a></li>
+        <li><a href="about.html">About</a></li>
+      </li>
+    </ul>
+     <footer>
+       <div class="share">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="lukyvj" data-size="large" data-hashtags="colorifyJs">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+    <span class="icon -tools">Made</span> with <span class="icon -love">♥</span> by <a href="http://twitter.com/lukyvj"><strong><span>@</span><span>L</span><span>u</span><span>k</span><span>y</span><span>V</span><span>j</span></strong></a>
+  </footer>
+  </div>
+
+ 
+</nav>
+
+  <header id="header" class="">
+    <span class="orange-block"></span>
+    <span class="red-block"></span>
+    <span class="purple-block"></span>
+    <span class="blue-block"></span>
+    <span class="green-block"></span>
+
+    <div class="hero-header">
+      <div class="hero-title">
+        <h1>Colorify.js</h1>
+
+        <h2>The simple, customizable, tiny javascript color extractor</span></h2>
+
+        <a href="demo.html" class="btn btn-info">Demo</a>
+      </div>
+    </div>
+  </header>
+
+  
+
+<div class="content">
+  <div id="home">
+  <h2>Colorify wtf ?</h2>
+    <p>Colorify is a script written in Javascript, that allows you to extract colors from images, and manipulates them. From a simple plain color, based on the dominant color, to a beautiful gradient based on the image edges colors, colorify.js will spice up your designs!<p>
+    <p>In summary, with <strong>Colorify.js</strong>, you can :</p>
+    <ul>
+        <li>- Extract the dominant color from an image</li>
+        <li>- Generates gradients based on the images colors</li>
+        <li>- Isolate colors and manipulates them everywhere in the page</li>
+        <li>- Create a <strong>Lazy-revealer</strong> system for your images</li>
+        <li>- Loads image dynamically</li>
+        <li>- Create any <strong><code>colorify({});</code></strong> instances you want</li>
+    </ul>
+
+  </div>
+  
+  <div class="alert">
+    <p>The script works with ANY images format : <strong>png</strong>, <strong>jpeg</strong>, <strong>jpg</strong>, <strong>gif</strong></p>
+  </div>
+
+  <div id="documentation">
+    <header>
+      <h2>Documentation</h2>
+    </header>
+    <ul>
+      <li><a href="#installation">Installation</a></li>
+      <li><a href="#defaultConfig">Default config</a></li>
+      <li><a href="#loadImagesDynamically">Load images dynamically</a></li>
+      <li><a href="#getMainColor">Get main color</a></li>
+      <li><a href="#getGradient">Get Gradient</a></li>
+      <li><a href="#lazyReveal">Lazy-reveal</a></li>
+      <li><a href="#displayOnEvent">Display on event</a></li>
+      <li><a href="#manipulatesColor">Manipulates color</a></li>
+    </ul>
+
+
+  <section id="installation">
+    <header class="header">
+      <h2>Installation</h2>
+    </header>
+    <p>To install colorify, just download the script and load it at the end of your page</p>
+    <pre><code class="language-markup">
+    &lt;script src="path/to/colorify.js">&lt;/script>
+  &lt;/body>
+    </code></pre>
+  </section>
+
+
+  <section id="defaultConfig">
+    <header class="header">
+      <h2>Basic config</h2>
+    </header>
+
+    <div class="alert">
+      <p>Keep in mind that you have to host the images on your server in order to avoid CORS restrictions</p>
+    </div>
+
+    <p>If your page contains only one section where you want to use colorify, you can use the basic config, to do so, you just need to load colorify like this :</p>
+    <pre><code class="language-javascript">
+    colorify({});
+    </code></pre>
+    <p>Which is the equivalent to :</p>
+    <pre><code class="language-javascript">colorify({
+  id: 1,
+  attr: 'colorify',
+  container: 'scene',
+  images: false,
+  accuracy: 100,
+  gradient: false,
+  gradientDirection: 'to bottom right',
+  padding: 4,
+  lazyReveal: {
+   transition: 1, 
+   delay: 1,
+   steps: false
+  },
+  giveTo: false,
+  revealOn: false
+});
+</code></pre>
+  </section>
+
+
+  <section id="loadImagesDynamically">
+    <header class="header">
+      <h2>Load image dynamically</h2>
+    </header>
+    <p>Sometimes you don't want to bother yourself writing too much code, you may want to load your images dynamically, there is a param for this in colorify.js, the <code>images:</code> parameter, you can pass an array of images to add them on your selected container</p>
+
+    <pre class="language-javascript"><code class="language-javascript">colorify({
+  container: 'dynamic-images',
+  images: [
+    'path/to/image1.png',
+    'path/to/image2.jpg',
+    'path/to/image3.gif'
+  ]
+});
+    </code></pre>
+  </section>
+
+  <section id="getMainColor">
+    <header class="header">
+      <h2>Get main color</h2>
+    </header>
+    <p>The main value of colorify is the ability to extract the average color of an image, to do so, call the function like this</p>
+
+    <pre class="language-javascript"><code class="language-javascript">colorify({
+  container: 'colorify-main-color',
+  accuracy: 10
+});
+    </code></pre>
+
+    <p>And for example you've got this markup</p>
+
+    <pre><code class="language-markup">&lt;div colorify-main-color&gt;
+    &lt;img colorify src="image1.jpg"&gt;
+    &lt;img colorify src="image2.jpg"&gt;
+    &lt;img colorify src="image3.jpg"&gt;
+  &lt;/div&gt;
+    </code></pre>
+
+    <p>It will result in </p>
+    <pre class="language-markup"><code class="language-markup">&lt;div colorify-main-color&gt;
+    &lt;div class="image-container" style="padding: 4px; background-color: rgb(221, 89, 80);"&gt;
+      &lt;img colorify="" src="image1.jpg" class="colorify visible all-loaded" style="transition: all 1000ms ease 1000ms;"&gt;
+    &lt;/div&gt;
+    &lt;div class="image-container" style="padding: 4px; background-color: rgb(63, 147, 220);"&gt;
+      &lt;img colorify="" src="image2.jpg" class="colorify visible all-loaded" style="transition: all 1000ms ease 1000ms;"&gt;
+      &lt;/div&gt;
+    &lt;div class="image-container" style="padding: 4px; background-color: rgb(22, 196, 102);"&gt;
+      &lt;img colorify="" src="image3.jpg" class="colorify visible all-loaded" style="transition: all 1000ms ease 1000ms;"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+
+    <p>Or visually, like this :</p>
+    
+    <div class="demo-scene" colorify-main-color>
+      <img colorify src="images/headers/red.jpg">
+      <img colorify src="images/headers/blue.jpg">
+      <img colorify src="images/headers/green.jpg">
+    </div>
+    
+  </section>
+
+  <section id="getGradient">
+    <header class="header">
+      <h2>Get a gradient</h2>
+    </header>
+    <p>To get a gradient from an image, you write the colorify script with the following parameters and values </p>
+
+    <pre class="language-javascript"><code class="language-javascript">colorify({
+  container: 'colorify-gradient-color',
+  accuracy: 10,
+  gradient: true,
+  gradientDirection: 'to bottom right'
+});
+    </code></pre>
+
+    <p>With the following markup</p>
+
+    <pre><code class="language-markup">&lt;div colorify-gradient-color&gt;
+    &lt;img colorify src="image1.jpg"&gt;
+    &lt;img colorify src="image2.jpg"&gt;
+    &lt;img colorify src="image3.jpg"&gt;
+  &lt;/div&gt;
+    </code></pre>
+
+    <p>It will result in </p>
+    <pre class="language-markup"><code class="language-markup">&lt;div colorify-gradient-color&gt;
+    &lt;div class="image-container" style="padding: 4px; background-image: linear-gradient(to right bottom, rgb(233, 117, 104), rgb(224, 86, 77)); background-color: rgb(221, 89, 80);"&gt;
+      &lt;img src="image1.jpg" colorify="" class="colorify visible all-loaded" style="transition: all 1000ms ease 1000ms;"&gt;
+    &lt;/div&gt;
+    &lt;div class="image-container" style="padding: 4px; background-image: linear-gradient(to right bottom, rgb(61, 157, 220), rgb(75, 152, 222)); background-color: rgb(63, 147, 220);"&gt;
+      &lt;img src="image2.jpg" colorify="" class="colorify visible all-loaded" style="transition: all 1000ms ease 1000ms;"&gt;
+    &lt;/div&gt;
+    &lt;div class="image-container" style="padding: 4px; background-image: linear-gradient(to right bottom, rgb(29, 208, 118), rgb(22, 163, 75)); background-color: rgb(22, 196, 102);"&gt;
+      &lt;img src="image3.jpg" colorify="" class="colorify visible all-loaded" style="transition: all 1000ms ease 1000ms;"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+
+    <p>Or visually, like this :</p>
+   
+    <div class="demo-scene" colorify-gradient-color>
+      <img colorifyDemo src="images/headers/purple.jpg">
+      <img colorifyDemo src="images/headers/blue.jpg">
+      <img colorifyDemo src="images/headers/green.jpg">
+    </div>
+    
+  </section>
+
+  <section id="lazyReveal">
+    <header class="header">
+      <h2>Lazy reveal</h2>
+    </header>
+    
+    <p>This is an interesting aspect of Colorify, and kindof the reason of it's existence. It will allow you to <strong>Lazy-reveal</strong> your images. </p>
+
+    <p>We use the term <strong>Lazy-reveal</strong> because it's not "lazy-loading" them per say. Because Colorify is a 100% client script, the only way colorify can process your images is when they are loaded and so, when they are loaded, the script hide them directly, process them and reveal them.</p>
+    
+    <p>You can set the time you want, and it will reveal each images based on this time.</p>
+    
+    <header>
+      <h3>All at once without transition</h3>
+    </header>
+
+    <p>To reveal the images all at once without any transition but a delay</p>
+
+    <pre class="language-javascript"><code class="language-javascript">colorify({
+  container: 'colorify-lazy-reveal',
+  lazyReveal: {
+    delay: 3 // 3 second before revealing
+  }
+});
+    </code></pre>
+
+  <p>Or visually, like this :</p>
+  <a href="index.html#rv1" id="rv1" onclick="window.location.reload()" class="btn btn-info">reload</a>
+ 
+  <div class="demo-scene nothover" colorify-lazy-reveal>
+    <img src="images/headers/purple.jpg">
+    <img src="images/headers/blue.jpg">
+    <img src="images/headers/green.jpg">
+  </div>
+
+  <header>
+    <h3>All at once with transition</h3>
+  </header>
+  
+  <p>To reveal the images all at once but with a delay</p>
+
+  <pre class="language-javascript"><code class="language-javascript">colorify({
+  container: 'colorify-lazy-reveal-2',
+  lazyReveal: {
+    transition: 2,  // The transition occurs for 2 seconds
+    delay: 3
+  }
+});
+    </code></pre>
+
+      <p>Or visually, like this :</p>
+      <a href="index.html#rv2" id="rv2" onclick="window.location.reload()" class="btn btn-info">reload</a>
+     
+      <div class="demo-scene nothover" colorify-lazy-reveal-2>
+        <img src="images/headers/purple.jpg">
+        <img src="images/headers/blue.jpg">
+        <img src="images/headers/green.jpg">
+      </div>
+
+  <header>
+    <h3>All at once with transition steps</h3>
+  </header>
+  
+  <p>To reveal the images all at once but with a delay and stepped</p>
+
+  <pre class="language-javascript"><code class="language-javascript">colorify({
+  container: 'colorify-lazy-reveal-3',
+  lazyReveal: {
+    transition: 2,  // The transition occurs for 2 seconds
+    delay: 1,
+    steps: true
+  }
+});
+    </code></pre>
+
+      <p>Or visually, like this :</p>
+      <a href="index.html#rv3" id="rv3" onclick="window.location.reload()" class="btn btn-info">reload</a>
+     
+      <div class="demo-scene nothover" colorify-lazy-reveal-3>
+        <img src="images/headers/purple.jpg">
+        <img src="images/headers/blue.jpg">
+        <img src="images/headers/green.jpg">
+      </div>      
+  
+  </section>
+
+  <section id="displayOnEvent">
+    <header class="header">
+      <h2>Display on event</h2>
+    </header>
+
+    <p>You may want to display the image when a certain element is clicked ? from the body to an ID, you can display the images on any event, with any trigger !</p>
+<pre class="language-javascript"><code class="language-javascript">colorify({
+  container: 'colorify-reveal-on-event',
+  revealOn: {
+    event: 'mouseOver',
+    trigger: '#hover'
+  }
+});
+    </code></pre>    
+
+     <p>Or visually, like this :</p>
+      <a href="#event1" id="event1" class="btn btn-info">Hover me</a>
+     
+      <div class="demo-scene nothover" colorify-reveal-on-event>
+        <img src="images/headers/purple.jpg">
+        <img src="images/headers/blue.jpg">
+        <img src="images/headers/green.jpg">
+      </div>      
+  
+  </section>
+
+ <section id="manipulatesColor">
+    <header class="header">
+      <h2>Manipulates color</h2>
+    </header>
+
+    <p>This is a cool aspect of Colorify, you can extract the color from a picture, and give it's value to any element on the page</p>
+    <p>The <code>property</code> parameter accepts : </p>
+    <ul>
+      <li><code>background / background-color </code></li>
+      <li><code>color</code></li>
+      <li><code>outline-color</code></li>
+      <li><code>border-color</code></li>
+      <li><code>fill</code></li>
+      <li><code>box-shadow</code></li>
+    </ul>
+
+    <header>
+      <h3>Give it to the parent</h3>
+    </header>
+<pre class="language-javascript"><code class="language-javascript">colorify({
+  container: 'colorify-reveal-on-event',
+  give: {
+    property: 'background',
+    target: 'parent'
+  }
+});
+    </code></pre>    
+
+      <header>
+      <h3>Give it to children</h3>
+    </header>
+<pre class="language-javascript"><code class="language-javascript">colorify({
+  container: 'colorify-reveal-on-event',
+  give: {
+    property: 'background',
+    target: 'child'
+  }
+});
+    </code></pre>    
+
+      <header>
+      <h3>Give it to the exact element</h3>
+    </header>
+<pre class="language-javascript"><code class="language-javascript">colorify({
+  container: 'colorify-reveal-on-event',
+  give: {
+    property: 'background',
+    target: '.cover'
+  }
+});
+    </code></pre>    
+  </section>
+  
+  <section id="api">
+    <header class="header">
+      <h2>API</h2>
+    </header>
+  <div class="table-api">
+    <div>
+    <header>
+      <h3>Config</h3>
+    </header>
+      <pre><code class="language-javascript">colorify({
+  id: <span class="numeric">numeric</span>,
+  container: <span class="string">string</span>,
+  attr: <span class="string">string</span>, 
+  images: <span class="array">array</span>,
+  accuracy: <span class="numeric">numeric</span>,
+  color: <span class="boolean">boolean</span>,
+  gradient: <span class="boolean">boolean</span>,
+  gradientDirection: <span class="string">string</span>,
+  padding: <span class="numeric">numeric</span>,
+  lazyReveal: {
+   transition: <span class="numeric">numeric</span>, 
+   delay: <span class="numeric">numeric</span>,
+   steps: <span class="boolean">boolean</span>
+  },
+  give: {
+    property: <span class="string">string</span>,
+    target: <span class="string">string</span>
+  },
+  revealOn: {
+    trigger: <span class="string">string</span>
+    event: <span class="string">string</span>
+  }
+});</code></pre>
+    </div>
+    <div>
+     <header>
+      <h3>Example</h3>
+    </header>
+      <pre><code class="language-javascript">colorify({
+  id: 1,
+  container: 'colorify-container',
+  attr: 'colorify', 
+  images: [
+    'image1.png',
+    'image2.jpg',
+    'image3.gif'
+  ],
+  accuracy: 20,
+  color: false,
+  gradient: true,
+  gradientDirection: 'to top left',
+  padding: 10,
+  lazyReveal: {
+   transition: 1, 
+   delay: 1,
+   steps: true
+  },
+  give: {
+    property: 'color',
+    target: '.header h1'
+  },
+  revealOn: {
+    trigger: '#start'
+    event: 'click'
+  }
+});</code></pre>
+    </div>
+    <div>
+     <header>
+      <h3>default</h3>
+    </header>
+      <pre><code class="language-javascript">colorify({
+  id: 1,
+  container: 'colorify',
+  attr: 'colorify', 
+  images: false,
+  accuracy: 100,
+  color: boolean,
+  gradient: false,
+  gradientDirection: false,
+  padding: 4,
+  lazyReveal: false,
+  give: false,
+  revealOn: false
+});</code></pre>
+    </div>
+  </div>
+  <span class="cf"></span>
+  <header>
+    <h3>Parameters</h3>
+  </header>
+
+  <ul>
+    <li><code>id</code> : The id of the colorify instance</li>
+    <li><code>container</code> : The class or id of the container</li>
+    <li><code>attr</code> : The attribute to use on the images to process, by default, the attribute is the same value as <code>container</code></li>
+    <li><code>images</code> : Pass an array to it if you need to dynamically add images</li>
+    <li><code>accuracy</code> : Each visited pixels, the more high the value is, faster the rendering will be.</li>
+    <li><code>color</code> : Set to true if you want colorify to give you the main color of the image, by default the value is <code>true</code></li>
+    <li><code>gradient</code> : Set to true if you want colorify to return a gradient instead of a color, by default the value is <code>false</code> </li>
+    <li><code>gradientDirection</code> : If the <code>gradient</code> value is set to true, use this parameter to define de gradient direction </li>
+    <li><code>padding</code> : If you want to have padding around your images and fake a colored border effect, give it a value or false, by default the value is <code>4</code></li>
+    <li><code>lazyReveal</code> :
+      <ul>
+        <li><code>transition</code>: Set the time a transition should length, by default, the value is <code>0</code></li> 
+        <li><code>delay</code>: Define the time before the animation should start, by default, the value is <code>0</code></li>
+        <li><code>steps</code>: Set to true if you want the images to reveal one after an other, by default the value is <code>false</code></li>
+      </ul>
+    </li>
+    <li><code>give</code> :
+      <ul>
+        <li><code>property</code>: Define wich property should use the image extracted color, by default the value is <code>false</code></li>
+        <li><code>target</code>: Give the selector class, id, name or attribute that should use the color with the defined <code>property</code></li>        
+      </ul>
+    </li>
+    <li><code>revealOn</code> :
+      <ul>
+        <li><code>trigger</code>: The selector class, id, name or attribute that should trigger the reveal, by default the value is <code>false</code></li>
+        <li><code>event</code>: The event to use to make the animation occur, of course the <code>event</code> will be attached to the <code>trigger</code></li>
+      </ul>
+    </li>
+  </ul>
+  </section>
+
+  </div>
+</div>
+
+<script src="scripts/app.js"></script>
+<script src="src/colorify.js"></script>
+
+<script src="src/init.js"></script>
+
+
+</body>
+</html>

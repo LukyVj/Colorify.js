@@ -1,0 +1,149 @@
+
+$sidebar-width: 280px;
+
+$orange: saturate(#EC9C45, 5%);
+$red: saturate(#DD5950, 5%);
+$purple: saturate(#AE5BAF, 5%);
+$blue: saturate(#3F93DC, 5%);
+$green: saturate(#16C466, 5%);
+
+
+
+$header-map-images: (
+  'orange': '../images/headers/orange.jpg' ,
+  'red': '../images/headers/red.jpg',
+  'purple': '../images/headers/purple.jpg',
+  'blue': '../images/headers/blue.jpg',
+  'green': '../images/headers/green.jpg' 
+  );
+$header-map-colors: (
+  'orange': $orange ,
+  'red': $red,
+  'purple': $purple,
+  'blue': $blue,
+  'green': $green 
+  );
+
+
+$nav-map-colors: (
+  0: $orange ,
+  1: $red,
+  2: $purple,
+  3: $blue,
+  4: $green 
+  );
+
+$nav-header-map-colors: (
+  0: $orange ,
+  1: $red,
+  2: $purple,
+  3: $blue,
+  4: $green,
+  5: $orange ,
+  6: $red,
+  7: $purple,
+  8: $blue,
+  9: $green,
+  10: $orange 
+    );
+
+$lists-map-colors: (
+  0: $orange ,
+  1: $red,
+  2: $purple,
+  3: $blue,
+  4: $green,
+  5: $orange ,
+  6: $red,
+  7: $purple,
+  8: $blue,
+  9: $green,
+  10: $orange,
+  11: $orange ,
+  12: $red,
+  13: $purple,
+  14: $blue,
+  15: $green,
+  16: $orange ,
+  17: $red,
+  18: $purple,
+  19: $blue,
+  20: $green,
+  21: $orange,
+  22: $orange ,
+  23: $red,
+  24: $purple,
+  25: $blue,
+  26: $green,
+  27: $orange ,
+  28: $red,
+  29: $purple,
+  30: $blue,
+  31: $green
+);
+
+%bs-1 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !important;
+}
+
+%bs-2 {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+}
+
+%bs-r-2 {
+  box-shadow: 3px 0 6px rgba(0, 0, 0, 0.16), 3px 0 6px rgba(0, 0, 0, 0.23) !important;
+}
+
+%bs-3 {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
+}
+
+%bs-4 {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
+}
+
+%bs-5 {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22) !important;
+}
+
+/// Mixin to customize scrollbars
+/// Beware, this does not work in all browsers
+/// @author Hugo Giraudel
+/// @param {Length} $size - Horizontal scrollbar's height and vertical scrollbar's width
+/// @param {Color} $foreground-color - Scrollbar's color
+/// @param {Color} $background-color [mix($foreground-color, white, 50%)] - Scrollbar's color
+/// @example scss - Scrollbar styling
+///   @include scrollbars(.5em, slategray);
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  ::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+
+
+@mixin headerTitle(){
+   height: 59px;
+    cursor: pointer;
+    line-height: 59px;
+    border-bottom: 1px solid #CCC;
+    padding: 0 16px;
+    position: relative;
+    background-image: linear-gradient(to bottom, #FFF, #F7F7F7);
+}

@@ -1,0 +1,23 @@
+{
+  "name": "canvas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "browser-sync": "^2.9.11",
+    "gulp": "^3.9.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.9.11",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-exec": "^2.1.2",
+    "gulp-ruby-sass": "^2.0.5",
+    "gulp-uglify": "^1.4.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "browser-sync start --server --files='./*'"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,655 @@
+
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+ @include scrollbars(0, rgba(0,0,0,0));
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+.scene {
+ -moz-column-count: 6;
+ -webkit-column-count: 6;
+ column-count: 6;
+ -moz-column-gap: 4px;
+ -webkit-column-gap: 4px;
+ column-gap: 4px;
+ padding: 16px;
+}
+.image-container {
+  display: inline-block;
+  padding: 0;
+  margin: 0 4px;
+}
+
+// Layout 
+#header {
+  width: calc(100% - #{$sidebar-width});
+  left: #{$sidebar-width};
+  transition: all 0.3s ease;
+  @media (max-width: 780px) {
+  left: 0;
+    width: 100%;
+  }
+}
+nav{
+  float: left;
+  transition: transform 0.3s ease;
+  position: absolute !important; 
+
+  @media (max-width: 780px) {
+    transform: translate3d(-100%, 0, 0);
+      transition: transform 0.3s ease;
+
+  }
+}
+
+ul {
+  padding: 8px;
+
+ li {
+  line-height: 32px;
+
+  a {
+    color: currentColor;
+    text-decoration: none;
+      
+
+    }
+
+    &:hover a {
+      text-decoration: underline;
+      
+    }
+  }
+}
+header#header, 
+nav .hero-header {
+  float: left;
+  display: block;
+  position: relative;
+  text-align: center;
+  min-height: 420px;
+  height: 420px;
+  color: #fff;
+  line-height: 1.5;
+  background-image: linear-gradient(to right, $orange 20%, $red 20%, $red 40%, $purple 40%, $purple 60%, $blue 60%,$blue  80%, $green 80%, $green 100%);
+  z-index: 3;
+  top: 0;
+
+  [class$="-block"] {
+    display: block;
+    float: left;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    position: relative;
+
+    &:after {
+      content:'';
+      display: block;
+      
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 3;
+      opacity: 1;
+      will-change: opacity;
+      transition:  opacity 0.3s ease;
+    }
+
+    .btn {
+      margin: auto;
+    }
+
+    &:hover:after {
+      opacity: 0;
+    }
+
+    @each $class, $path in $header-map-images {
+      &[class^="#{$class}"]{
+        background: {
+          image: url($path);
+          size: cover;
+          position: center center;
+        } 
+
+      }
+    }
+
+    @each $class, $color in $header-map-colors {
+      &[class^="#{$class}"]:after {
+        background-color: $color; 
+      }
+    }
+  }
+
+  .hero-title {
+    position: absolute;
+    width: 100%;
+    z-index: 4;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 720px;
+
+    .btn {
+
+    }
+  }
+}
+
+nav{
+  position: relative;
+  width: $sidebar-width;
+  float: left;
+  height: 100%;
+  float: left;
+  z-index: 105;
+  background: #F7F7F7;
+
+  &.closed {
+    transform: translateX(-#{$sidebar-width});
+    position: fixed !important;
+  }
+
+  .control{ 
+    position: fixed;
+    left: $sidebar-width ;
+    
+    a {
+    font-size:52px;
+    width: 44px;
+    height: 44px;
+    float: right;
+    right: 0;
+    position: relative;
+    z-index: 300;
+    top: 23px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background: #fff;
+        box-shadow: 3px 0 6px rgba(0, 0, 0, 0.16), 3px 0 6px rgba(0, 0, 0, 0.13);
+    .icon {
+      background-size: 60%;
+      width: 100%;
+      height: 100%;
+      float: left;
+      background-position: 50% 76%;
+
+
+    }
+  }
+}
+
+  &:active{
+    h1 span {
+      @for $i from 0 to 12 {
+        &:nth-child(#{$i}){
+          animation: bg-anim 0.5s linear infinite #{$i*50}ms;
+        }
+      }
+    }
+  }
+
+
+
+  .menu {
+    width: 100%;
+    max-width: $sidebar-width;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: calc(100% - 90px);
+    background: #FFF;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      float: left;
+      width: 100%;
+      height: calc(100% -  60px );
+      overflow: auto;
+      position: relative;
+
+
+      li {
+        min-height: 48px;
+        padding: 0;
+        margin: 0;
+        line-height: 48px;
+        border-bottom: 1px solid #CCC;
+        padding-left: 16px;
+        position: relative;
+        float: left;
+        width: 100%;
+        transition: box-shadow 0.2s ease;
+        
+        @each $nth, $color in $nav-header-map-colors {
+          &:nth-child(#{$nth + 1}):hover {
+            box-shadow: inset 16px 0 0 0 $color; 
+          }
+        }
+
+
+        &:last-child {          
+        }
+        
+        &:before {
+          display: none;
+        }
+
+        &.bottom {
+          position: relative;
+          &:hover {
+            box-shadow: none;
+          }
+          bottom: 0;
+          background: #F7F7F7;
+        }
+        
+
+        a {
+          text-transform: none;
+          text-decoration: none;
+          color: initial;
+          float: left;
+          width: 100%;
+          height: 100%;
+          padding-left: 6px;
+        }
+      }
+
+      &.doc {
+        float: left;
+        width: calc(100% + 16px);
+        height: auto;
+        font-size: 16px;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        left: -16px;
+        border-top: 1px solid #ccc;
+        overflow: hidden;
+        background: #F7F7F7;
+        
+        li {
+          display: inline-block;
+          width: 100%;
+          min-height: 36px;
+          height: 36px;
+          float: left;
+          padding: 0;
+          margin: 0;
+          line-height: 36px;
+          background: #F7F7F7;
+          display: block;
+          
+        @each $nth, $color in $nav-header-map-colors {
+          &:nth-child(#{$nth + 1}):hover {
+           box-shadow: inset 16px 0 0 0 $color; 
+          }
+
+          &:nth-child(#{$nth + 1}):before{
+            content: '•';
+            color: $color;
+            display: block;
+            position: absolute;
+            font-size: 36px;
+            left: 8px;
+          }
+        }
+
+          &:last-child {
+            border-bottom: none;
+            
+          }
+
+          a {
+            padding-left: 32px;
+          }
+        }
+      }
+    }
+  }
+
+  .hero-header {
+    width: $sidebar-width;
+    min-height: 140px;
+    max-height: 140px;
+    overflow: hidden;
+    position: absolute;
+    background: transparent;
+    top: -140px;
+    border-bottom: 1px solid #CCC;
+
+    
+    h1 {
+      font-size: 24px;
+      line-height: 160px;
+      float: left;
+      width: 100%;
+      height: 140px;
+      
+      @each $nth, $color in $nav-header-map-colors {
+        span:nth-child(#{$nth + 1}) {
+          color: $color; 
+        }
+      }
+    }
+    
+    p {
+      display: none;
+      
+    }
+    .btn {
+      display: none;
+      
+    }
+  }
+}
+
+.content {
+  width: calc(100% - #{$sidebar-width});
+  position: relative;
+  border-left: 1px solid #CCC;
+  padding: 16px;
+  float: left;
+
+  h1, h2, h3, h4 {
+    color: #565F6D
+  }
+  left: #{$sidebar-width};
+  transition: all 0.3s ease;
+  @media (max-width: 780px) {
+    left: 0;
+    width: 100%;
+  }
+
+}
+
+
+@keyframes bg-anim{
+  66%{
+    color: #FFF
+  }
+}
+#demos {
+ > .demo {
+  border-bottom: none;
+  > header {
+    
+  }
+ }
+}
+#demos .demo header h2 {
+  @include headerTitle();
+  border-top: 1px solid #CCC;
+  width: calc(100% + 32px);
+  left: -16px;
+  float: left;
+}
+// Doc
+#documentation section.closed{
+  overflow: hidden;
+  height: 60px !important;
+}
+#documentation section{
+  width: calc(100% + 32px);
+  position: relative;
+  left: -16px;
+  padding-bottom: 16px;
+  transition: height 0.25s ease;
+
+  &:not(.closed) {
+    border-bottom: 1px solid #CCC;
+  }
+
+  p,
+  > div,
+  > header {
+    padding: 0 16px;
+  }
+
+  > header.header{
+   @include headerTitle();
+    
+   
+
+    h2 {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  &:first-of-type {
+    margin-top: 2em;
+    > header.header { border-top: 1px solid #ccc; }
+  }
+}
+
+.demo-scene {
+  clear: both;
+  width: 100%;
+  
+  img {
+    max-width: 200px;
+    transition: opacity 0.35s ease;
+
+  }
+  &:not(.nothover){
+    img.colorify {
+      opacity: 0;
+    }
+  }
+  .image-container:hover {
+    img {
+      opacity: 1;
+    }
+  }
+}
+
+
+$minHeaderHeight: 90px;
+
+#minHeader {
+  transform: translateY(-#{$minHeaderHeight});
+  transition: all 0.3s ease;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: $minHeaderHeight;
+  .hero-header {
+    opacity: 0;
+     float: left;
+    width: $sidebar-width;
+    height: $minHeaderHeight;
+    background: #fff;
+    background: transparent;
+    border-bottom: 1px solid #ccc;
+
+    @media (max-width: 780px) {
+      border-bottom: #ccc 1px solid;
+    }
+  }
+  h2 {
+   
+    padding: 0;
+    margin: 0;
+    line-height: $minHeaderHeight;
+    text-align: center;
+    @each $nth, $color in $nav-header-map-colors {
+        span:nth-child(#{$nth + 1}) {
+          color: $color; 
+        }
+      }
+
+  }
+  .colors{
+    background-image: linear-gradient(to right, $orange 20%, $red 20%, $red 40%, $purple 40%, $purple 60%, $blue 60%,$blue  80%, $green 80%, $green 100%);
+    height: $minHeaderHeight;
+    float: left;
+    width: calc(100% - #{$sidebar-width});
+  }
+
+  &.full-width {
+      .hero-header {
+        display: none;
+        
+      }
+
+      .colors {
+        width: 100%;
+      }
+    }
+}
+
+#minHeader.appear {
+  transform: translateY(0)
+}
+
+
+.table-api > div {
+  width: 33% !important;
+  float: left;
+  padding: 8px;
+}
+
+nav footer{
+    position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 60px;
+  height: 100px;
+  background: #fff;
+  border-top: 1px solid #ccc;
+
+  a {
+    text-decoration: none;
+    
+    @each $nth, $color in $nav-header-map-colors {
+        span:nth-child(#{$nth + 1}) {
+          color: $color; 
+          border-bottom: 1px solid $color;
+        }
+      }
+  }
+}
+.string {
+  color: #71A014
+}
+
+
+
+
+.alert {
+  float: left;
+  position: relative;
+  padding: 16px;
+  margin: 1em 0;
+  min-height: 40px;
+  background: #F7F7F7;
+  width: calc(100% + 32px);
+
+  .demo &{
+    border-left: 5px solid $orange;
+     border-right: 5px solid $green;
+  }
+
+  left: -16px;
+  
+   section &{
+    width: 100%;
+    left: 0;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    background-image: linear-gradient(to right, $orange 20%, $red 20%, $red 40%, $purple 40%, $purple 60%, $blue 60%,$blue  80%, $green 80%, $green 100%);
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  &:before {
+    top: 0;
+    height: 4px;
+  }
+}
+
+.full-width {
+  width: 100% !important;
+  max-width: 100% !important;
+  left: 0 !important;
+}
+
+
+
+.demo  .sample{
+  background: mix(saturate(#3993E2, 5), #fff, 16%);
+  float: left;
+  width: 100%;
+  margin-top: 1em;
+
+  .codes {
+    display: flex;
+  }
+
+  .html, .javascript {
+    border: 3px solid mix(saturate(#3993E2, 5), #fff, 46%);
+    position: relative;
+    padding-top: 1em;
+    
+    &:before {
+      content: 'javascript';
+      padding: 0.2em 0.4em;
+      background: saturate(#3993E2, 5);
+      color: #fff;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &.html {
+      border-right: none;
+       &:before {
+        content: 'html';
+    }
+    }
+    pre, code {
+      background: transparent;
+    }
+  }
+
+  .result {
+    margin: 16px;
+    background: #fff;
+    padding: 16px;
+  }
+}
+
+.share {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  float: left;
+}

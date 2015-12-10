@@ -1,0 +1,14 @@
+.demo {
+  border-bottom: 2px solid #ccc;
+  
+  .html, .javascript {
+    width: 50%;
+    float: left;
+  }
+  .result {
+    img {
+      max-width: 200px;
+      float: left;
+    }
+  }
+}

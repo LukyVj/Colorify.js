@@ -6,7 +6,7 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscaled;
-  font-weight: 300 !important;
+  &:not(strong){font-weight: 300 !important;}
 }
 
 html, body {

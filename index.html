@@ -126,7 +126,7 @@ https://www.flickr.com/photos/56053592@N00/6166620122
     <header class="header">
       <h2>Installation</h2>
     </header>
-    <p>To install colorify, just download the script and load it at the end of your page</p>
+    <p>To install colorify, just <a href="https://github.com/LukyVj/Colorify.js">download</a> the script and load it at the end of your page</p>
     <pre><code class="language-markup">
     &lt;script src="path/to/colorify.js">&lt;/script>
   &lt;/body>
@@ -145,26 +145,26 @@ https://www.flickr.com/photos/56053592@N00/6166620122
 
     <p>If your page contains only one section where you want to use colorify, you can use the basic config, to do so, you just need to load colorify like this :</p>
     <pre><code class="language-javascript">
-    colorify({});
+  colorify({});
     </code></pre>
     <p>Which is the equivalent to :</p>
-    <pre><code class="language-javascript">colorify({
-  id: 1,
-  attr: 'colorify',
-  container: 'scene',
-  images: false,
-  accuracy: 100,
-  gradient: false,
-  gradientDirection: 'to bottom right',
-  padding: 4,
-  lazyReveal: {
-   transition: 1, 
-   delay: 1,
-   steps: false
-  },
-  giveTo: false,
-  revealOn: false
-});
+<pre><code class="language-javascript">colorify({
+    id: 1,
+    attr: 'colorify',
+    container: 'scene',
+    images: false,
+    accuracy: 100,
+    gradient: false,
+    gradientDirection: 'to bottom right',
+    padding: 4,
+    lazyReveal: {
+      transition: 1, 
+      delay: 1,
+      steps: false
+    },
+    giveTo: false,
+    revealOn: false
+  });
 </code></pre>
   </section>
 
@@ -176,13 +176,13 @@ https://www.flickr.com/photos/56053592@N00/6166620122
     <p>Sometimes you don't want to bother yourself writing too much code, you may want to load your images dynamically, there is a param for this in colorify.js, the <code>images:</code> parameter, you can pass an array of images to add them on your selected container</p>
 
     <pre class="language-javascript"><code class="language-javascript">colorify({
-  container: 'dynamic-images',
-  images: [
-    'path/to/image1.png',
-    'path/to/image2.jpg',
-    'path/to/image3.gif'
-  ]
-});
+    container: 'dynamic-images',
+    images: [
+      'path/to/image1.png',
+      'path/to/image2.jpg',
+      'path/to/image3.gif'
+    ]
+  });
     </code></pre>
   </section>
 
@@ -193,9 +193,9 @@ https://www.flickr.com/photos/56053592@N00/6166620122
     <p>The main value of colorify is the ability to extract the average color of an image, to do so, call the function like this</p>
 
     <pre class="language-javascript"><code class="language-javascript">colorify({
-  container: 'colorify-main-color',
-  accuracy: 10
-});
+    container: 'colorify-main-color',
+    accuracy: 10
+  });
     </code></pre>
 
     <p>And for example you've got this markup</p>
@@ -237,12 +237,11 @@ https://www.flickr.com/photos/56053592@N00/6166620122
     <p>To get a gradient from an image, you write the colorify script with the following parameters and values </p>
 
     <pre class="language-javascript"><code class="language-javascript">colorify({
-  container: 'colorify-gradient-color',
-  accuracy: 10,
-  gradient: true,
-  gradientDirection: 'to bottom right'
-});
-    </code></pre>
+    container: 'colorify-gradient-color',
+    accuracy: 10,
+    gradient: true,
+    gradientDirection: 'to bottom right'
+  });</code></pre>
 
     <p>With the following markup</p>
 
@@ -250,8 +249,7 @@ https://www.flickr.com/photos/56053592@N00/6166620122
     &lt;img colorify src="image1.jpg"&gt;
     &lt;img colorify src="image2.jpg"&gt;
     &lt;img colorify src="image3.jpg"&gt;
-  &lt;/div&gt;
-    </code></pre>
+  &lt;/div&gt;</code></pre>
 
     <p>It will result in </p>
     <pre class="language-markup"><code class="language-markup">&lt;div colorify-gradient-color&gt;
@@ -294,12 +292,11 @@ https://www.flickr.com/photos/56053592@N00/6166620122
     <p>To reveal the images all at once without any transition but a delay</p>
 
     <pre class="language-javascript"><code class="language-javascript">colorify({
-  container: 'colorify-lazy-reveal',
-  lazyReveal: {
-    delay: 3 // 3 second before revealing
-  }
-});
-    </code></pre>
+    container: 'colorify-lazy-reveal',
+    lazyReveal: {
+      delay: 3 // 3 second before revealing
+    }
+  });</code></pre>
 
   <p>Or visually, like this :</p>
   <a href="index.html#rv1" id="rv1" onclick="window.location.reload()" class="btn btn-info">reload</a>
@@ -317,13 +314,12 @@ https://www.flickr.com/photos/56053592@N00/6166620122
   <p>To reveal the images all at once but with a delay</p>
 
   <pre class="language-javascript"><code class="language-javascript">colorify({
-  container: 'colorify-lazy-reveal-2',
-  lazyReveal: {
-    transition: 2,  // The transition occurs for 2 seconds
-    delay: 3
-  }
-});
-    </code></pre>
+    container: 'colorify-lazy-reveal-2',
+    lazyReveal: {
+      transition: 2,  // The transition occurs for 2 seconds
+      delay: 3
+    }
+  });</code></pre>
 
       <p>Or visually, like this :</p>
       <a href="index.html#rv2" id="rv2" onclick="window.location.reload()" class="btn btn-info">reload</a>
@@ -341,14 +337,13 @@ https://www.flickr.com/photos/56053592@N00/6166620122
   <p>To reveal the images all at once but with a delay and stepped</p>
 
   <pre class="language-javascript"><code class="language-javascript">colorify({
-  container: 'colorify-lazy-reveal-3',
-  lazyReveal: {
-    transition: 2,  // The transition occurs for 2 seconds
-    delay: 1,
-    steps: true
-  }
-});
-    </code></pre>
+    container: 'colorify-lazy-reveal-3',
+    lazyReveal: {
+      transition: 2,  // The transition occurs for 2 seconds
+      delay: 1,
+      steps: true
+    }
+  });</code></pre>
 
       <p>Or visually, like this :</p>
       <a href="index.html#rv3" id="rv3" onclick="window.location.reload()" class="btn btn-info">reload</a>
@@ -368,13 +363,12 @@ https://www.flickr.com/photos/56053592@N00/6166620122
 
     <p>You may want to display the image when a certain element is clicked ? from the body to an ID, you can display the images on any event, with any trigger !</p>
 <pre class="language-javascript"><code class="language-javascript">colorify({
-  container: 'colorify-reveal-on-event',
-  revealOn: {
-    event: 'mouseOver',
-    trigger: '#hover'
-  }
-});
-    </code></pre>    
+    container: 'colorify-reveal-on-event',
+    revealOn: {
+      event: 'mouseOver',
+      trigger: '#hover'
+    }
+  });</code></pre>    
 
      <p>Or visually, like this :</p>
       <a href="#event1" id="event1" class="btn btn-info">Hover me</a>
@@ -407,37 +401,34 @@ https://www.flickr.com/photos/56053592@N00/6166620122
       <h3>Give it to the parent</h3>
     </header>
 <pre class="language-javascript"><code class="language-javascript">colorify({
-  container: 'colorify-reveal-on-event',
-  give: {
-    property: 'background',
-    target: 'parent'
-  }
-});
-    </code></pre>    
+    container: 'colorify-reveal-on-event',
+    give: {
+      property: 'background',
+      target: 'parent'
+    }
+  });</code></pre>    
 
       <header>
       <h3>Give it to children</h3>
     </header>
 <pre class="language-javascript"><code class="language-javascript">colorify({
-  container: 'colorify-reveal-on-event',
-  give: {
-    property: 'background',
-    target: 'child'
-  }
-});
-    </code></pre>    
+    container: 'colorify-reveal-on-event',
+    give: {
+      property: 'background',
+      target: 'child'
+    }
+  });</code></pre>    
 
       <header>
       <h3>Give it to the exact element</h3>
     </header>
 <pre class="language-javascript"><code class="language-javascript">colorify({
-  container: 'colorify-reveal-on-event',
-  give: {
-    property: 'background',
-    target: '.cover'
-  }
-});
-    </code></pre>    
+    container: 'colorify-reveal-on-event',
+    give: {
+      property: 'background',
+      target: '.cover'
+    }
+  });</code></pre>    
   </section>
   
   <section id="api">

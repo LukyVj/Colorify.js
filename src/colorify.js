@@ -102,7 +102,6 @@ var colorify = function(args){
     var toReveal = document.querySelectorAll('.to-reveal');
     document.querySelector(_REVEAL_ON_TRIGGER).addEventListener(_REVEAL_ON_EVENT, function(){
      for (var i=0, len = toReveal.length; i<len;i++) {
-      console.log(toReveal, toReveal.length)
       toReveal[i].style.opacity ='1';
     }
   })
@@ -137,7 +136,6 @@ var colorify = function(args){
         var tar = _TARGET.substring(0, 1);
         if (tar == '#' || tar == "." || tar == '*' || tar == "["){
           var to = document.querySelectorAll(_TARGET);
-          console.log(_TARGET)
           for(var i = 0, len = to.length; i < len; i++) {
            to[i].setAttribute('style', _PROPERTY + ': rgb('+rgb[0].r+','+rgb[0].g+','+rgb[0].b+')');
           }

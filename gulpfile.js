@@ -6,6 +6,7 @@ var uglify = require('gulp-uglify');
 var autoprefixer = require('gulp-autoprefixer');
 var exec = require('gulp-exec');
 var concat = require('gulp-concat');
+var rename = require('gulp-rename');
 
 var BASE = './src/';
 var scripts = {
@@ -33,6 +34,13 @@ gulp.task('bundle:colorify', ['bundle:ui'], function(){
   gulp.src([scripts.colorify.a, scripts.colorify.b])
     .pipe(concat('colorify.js'))
     // .pipe(uglify())
+    .pipe(gulp.dest('./scripts'));
+})
+
+gulp.task('bundle:minify', function(){
+  gulp.src('./scripts/colorify.js')
+    .pipe(uglify())
+    .pipe(rename("colorify.min.js"))
     .pipe(gulp.dest('./scripts'));
 })
 

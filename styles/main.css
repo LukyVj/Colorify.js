@@ -403,7 +403,8 @@ nav {
       width: 100%;
       height: calc(100% -  60px );
       overflow: auto;
-      position: relative; }
+      position: relative;
+      padding-bottom: 3em; }
       nav .menu ul li {
         min-height: 48px;
         padding: 0;

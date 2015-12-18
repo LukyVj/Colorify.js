@@ -15,6 +15,7 @@ var scripts = {
    colorify:  {
     a: BASE + 'init.js',
     b: BASE + 'base.js',
+    c: BASE + 'colorify.js'
   }, 
 
   ui: {
@@ -31,7 +32,7 @@ gulp.task('serve', function(){
 });
 
 gulp.task('bundle:colorify', ['bundle:ui'], function(){
-  gulp.src([scripts.colorify.a, scripts.colorify.b])
+  gulp.src([scripts.colorify.c])
     .pipe(concat('colorify.js'))
     // .pipe(uglify())
     .pipe(gulp.dest('./scripts'));

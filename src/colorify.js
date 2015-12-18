@@ -214,8 +214,6 @@ var colorify = function(args){
 
     if (_GRADIENT) {
       try {
-          // x = y = 0, w = width / 4, h = height / 4
-          // x = width - width / 4, y = height - height / 4, h = height / 4, w = width / 4
           rgbStart = getAverageRGBFromZone(context.getImageData(0, 0, width / 4, height / 4), {accuracy: _ACCURACY});
           rgbEnd = getAverageRGBFromZone(context.getImageData(width - width / 4, height - height / 4, width / 4, height / 4), {accuracy: _ACCURACY});
         } catch(e) {

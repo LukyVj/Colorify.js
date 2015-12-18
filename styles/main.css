@@ -150,6 +150,10 @@ p a {
     float: none;
     top: 30px; }
 
+@media (max-width: 780px) {
+  p {
+    line-height: 23px; } }
+
 .cf:before,
 .cf:after {
   content: " ";
@@ -210,7 +214,7 @@ nav {
   transition: transform 0.3s ease;
   position: absolute !important; }
   @media (max-width: 780px) {
-    nav {
+    nav.closed {
       -webkit-transform: translate3d(-100%, 0, 0);
               transform: translate3d(-100%, 0, 0);
       transition: -webkit-transform 0.3s ease;
@@ -466,6 +470,9 @@ nav {
         border-top: 1px solid #ccc;
         overflow: hidden;
         background: #F7F7F7; }
+        @media (max-width: 768px) {
+          nav .menu ul.doc {
+            font-size: 12px; } }
         nav .menu ul.doc li {
           display: inline-block;
           width: 100%;
@@ -594,7 +601,8 @@ nav {
       line-height: 160px;
       float: left;
       width: 100%;
-      height: 140px; }
+      height: 140px;
+      background: #fff; }
       nav .hero-header h1 span:nth-child(1) {
         color: #f19c40; }
       nav .hero-header h1 span:nth-child(2) {
@@ -769,6 +777,9 @@ nav {
   width: 33% !important;
   float: left;
   padding: 8px; }
+  @media (max-width: 780px) {
+    .table-api > div {
+      width: 100% !important; } }
 
 nav footer {
   position: absolute;
@@ -889,6 +900,10 @@ nav footer {
   height: 40px;
   padding: 8px;
   float: left; }
+
+@media (max-width: 780px) {
+  #minHeader {
+    display: none !important; } }
 
 .icon {
   display: inline-block;

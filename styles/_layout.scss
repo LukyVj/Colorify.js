@@ -1,21 +1,25 @@
 
-
+p {
+  @media (max-width: 780px) {
+    line-height: 23px;
+  }
+}
 .cf:before,
 .cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+  content: " "; /* 1 */
+  display: table; /* 2 */
 }
 
 .cf:after {
-    clear: both;
+  clear: both;
 }
- @include scrollbars(0, rgba(0,0,0,0));
+@include scrollbars(0, rgba(0,0,0,0));
 /**
  * For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
  */
-.cf {
-    *zoom: 1;
+ .cf {
+  *zoom: 1;
 }
 .scene {
  -moz-column-count: 6;
@@ -38,7 +42,7 @@
   left: #{$sidebar-width};
   transition: all 0.3s ease;
   @media (max-width: 780px) {
-  left: 0;
+    left: 0;
     width: 100%;
   }
 }
@@ -48,21 +52,22 @@ nav{
   position: absolute !important; 
 
   @media (max-width: 780px) {
-    transform: translate3d(-100%, 0, 0);
+    &.closed{
+      transform: translate3d(-100%, 0, 0);
       transition: transform 0.3s ease;
-
+    }
   }
 }
 
 ul {
   padding: 8px;
 
- li {
-  line-height: 32px;
+  li {
+    line-height: 32px;
 
-  a {
-    color: currentColor;
-    text-decoration: none;
+    a {
+      color: currentColor;
+      text-decoration: none;
       
 
     }
@@ -85,7 +90,9 @@ nav .hero-header {
   line-height: 1.5;
   background-image: linear-gradient(to right, $orange 20%, $red 20%, $red 40%, $purple 40%, $purple 60%, $blue 60%,$blue  80%, $green 80%, $green 100%);
   z-index: 3;
-  top: 0;
+  top: 0; 
+
+
 
   [class$="-block"] {
     display: block;
@@ -190,8 +197,8 @@ nav{
         float: left;
         background-position: 50% 76%;
       }
+    }
   }
-}
 
   &:active{
     h1 span {
@@ -284,6 +291,10 @@ nav{
         border-top: 1px solid #ccc;
         overflow: hidden;
         background: #F7F7F7;
+
+        @media (max-width: 768px) {
+          font-size: 12px;
+        }
         
         li {
           display: inline-block;
@@ -297,12 +308,12 @@ nav{
           background: #F7F7F7;
           display: block;
           
-        @each $nth, $color in $nav-header-map-colors {
-          &:nth-child(#{$nth + 1}):hover {
-           box-shadow: inset 16px 0 0 0 $color; 
-          }
+          @each $nth, $color in $nav-header-map-colors {
+            &:nth-child(#{$nth + 1}):hover {
+             box-shadow: inset 16px 0 0 0 $color; 
+           }
 
-          &:nth-child(#{$nth + 1}):before{
+           &:nth-child(#{$nth + 1}):before{
             content: '•';
             color: $color;
             display: block;
@@ -312,53 +323,54 @@ nav{
           }
         }
 
-          &:last-child {
-            border-bottom: none;
-            
-          }
+        &:last-child {
+          border-bottom: none;
 
-          a {
-            padding-left: 32px;
-          }
+        }
+
+        a {
+          padding-left: 32px;
         }
       }
     }
   }
+}
 
-  .hero-header {
-    width: $sidebar-width;
-    min-height: 140px;
-    max-height: 140px;
-    overflow: hidden;
-    position: absolute;
-    background: transparent;
-    top: -140px;
-    border-bottom: 1px solid #CCC;
+.hero-header {
+  width: $sidebar-width;
+  min-height: 140px;
+  max-height: 140px;
+  overflow: hidden;
+  position: absolute;
+  background: transparent;
+  top: -140px;
+  border-bottom: 1px solid #CCC;
 
-    
-    h1 {
-      font-size: 24px;
-      line-height: 160px;
-      float: left;
-      width: 100%;
-      height: 140px;
-      
-      @each $nth, $color in $nav-header-map-colors {
-        span:nth-child(#{$nth + 1}) {
-          color: $color; 
-        }
+
+  h1 {
+    font-size: 24px;
+    line-height: 160px;
+    float: left;
+    width: 100%;
+    height: 140px;
+    background: #fff;
+
+    @each $nth, $color in $nav-header-map-colors {
+      span:nth-child(#{$nth + 1}) {
+        color: $color; 
       }
     }
-    
-    p {
-      display: none;
-      
-    }
-    .btn {
-      display: none;
-      
-    }
   }
+
+  p {
+    display: none;
+
+  }
+  .btn {
+    display: none;
+
+  }
+}
 }
 
 .content {
@@ -390,9 +402,9 @@ nav{
  > .demo {
   border-bottom: none;
   > header {
-    
+
   }
- }
+}
 }
 #demos .demo header h2 {
   @include headerTitle();
@@ -425,19 +437,19 @@ nav{
 
   > header.header{
    @include headerTitle();
-    
+
    
 
-    h2 {
-      padding: 0;
-      margin: 0;
-    }
+   h2 {
+    padding: 0;
+    margin: 0;
   }
+}
 
-  &:first-of-type {
-    margin-top: 2em;
-    > header.header { border-top: 1px solid #ccc; }
-  }
+&:first-of-type {
+  margin-top: 2em;
+  > header.header { border-top: 1px solid #ccc; }
+}
 }
 
 .demo-scene {
@@ -475,7 +487,7 @@ $minHeaderHeight: 90px;
   height: $minHeaderHeight;
   .hero-header {
     opacity: 0;
-     float: left;
+    float: left;
     width: $sidebar-width;
     height: $minHeaderHeight;
     background: #fff;
@@ -487,16 +499,16 @@ $minHeaderHeight: 90px;
     }
   }
   h2 {
-   
+
     padding: 0;
     margin: 0;
     line-height: $minHeaderHeight;
     text-align: center;
     @each $nth, $color in $nav-header-map-colors {
-        span:nth-child(#{$nth + 1}) {
-          color: $color; 
-        }
+      span:nth-child(#{$nth + 1}) {
+        color: $color; 
       }
+    }
 
   }
   .colors{
@@ -507,15 +519,15 @@ $minHeaderHeight: 90px;
   }
 
   &.full-width {
-      .hero-header {
-        display: none;
-        
-      }
+    .hero-header {
+      display: none;
 
-      .colors {
-        width: 100%;
-      }
     }
+
+    .colors {
+      width: 100%;
+    }
+  }
 }
 
 #minHeader.appear {
@@ -527,10 +539,14 @@ $minHeaderHeight: 90px;
   width: 33% !important;
   float: left;
   padding: 8px;
+
+  @media (max-width: 780px) {
+    width: 100% !important;
+  }
 }
 
 nav footer{
-    position: absolute;
+  position: absolute;
   bottom: 0;
   width: 100%;
   text-align: center;
@@ -543,18 +559,16 @@ nav footer{
     text-decoration: none;
     
     @each $nth, $color in $nav-header-map-colors {
-        span:nth-child(#{$nth + 1}) {
-          color: $color; 
-          border-bottom: 1px solid $color;
-        }
+      span:nth-child(#{$nth + 1}) {
+        color: $color; 
+        border-bottom: 1px solid $color;
       }
+    }
   }
 }
 .string {
   color: #71A014
 }
-
-
 
 
 .alert {
@@ -568,12 +582,12 @@ nav footer{
 
   .demo &{
     border-left: 5px solid $orange;
-     border-right: 5px solid $green;
+    border-right: 5px solid $green;
   }
 
   left: -16px;
   
-   section &{
+  section &{
     width: 100%;
     left: 0;
   }
@@ -629,9 +643,9 @@ nav footer{
     }
     &.html {
       border-right: none;
-       &:before {
+      &:before {
         content: 'html';
-    }
+      }
     }
     pre, code {
       background: transparent;
@@ -651,4 +665,11 @@ nav footer{
   height: 40px;
   padding: 8px;
   float: left;
+}
+
+
+#minHeader {
+ @media (max-width: 780px) {
+  display: none !important;
+}
 }

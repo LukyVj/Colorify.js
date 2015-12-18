@@ -137,7 +137,8 @@ p a {
   text-decoration: none;
   transition: all 0.25s ease;
   border-radius: 60px;
-  color: dodgerblue; }
+  color: dodgerblue;
+  pointer-events: initial; }
   .btn-info {
     color: #fff;
     background: #3993e2; }
@@ -320,7 +321,8 @@ nav .hero-header {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-    max-width: 720px; }
+    max-width: 720px;
+    pointer-events: none; }
 
 nav {
   position: relative;

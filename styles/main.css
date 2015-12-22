@@ -402,6 +402,9 @@ nav {
     bottom: 0;
     height: calc(100% - 90px);
     background: #FFF; }
+    @media (max-width: 780px) {
+      nav .menu {
+        border-right: 1px solid #ccc; } }
     nav .menu ul {
       padding: 0;
       margin: 0;

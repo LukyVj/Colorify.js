@@ -24,7 +24,7 @@ To install colorify, just download the script and load it at the end of your pag
   </body>
 ```
 
-And add the [colorify.css](https://github.com/LukyVj/Colorify.js/tree/master/styles) to the head : 
+And add the [colorify.css](https://github.com/LukyVj/Colorify.js/blob/master/styles/colorify.css) to the head : 
 ```html
   <link rel="stylesheet" href="colorify.css">
 ```

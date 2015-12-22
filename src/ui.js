@@ -26,11 +26,17 @@ window.onload = function(e) {
  isSmall()
 } 
 
+window.addEventListener('resize', isSmall, false);
+
 function isSmall(){
   var w = document.documentElement.clientWidth;
   if(w<=768){
     document.querySelector('nav').classList.add('closed')
     document.querySelector('#closeNav .icon').classList.add('flip')
+  }
+   if(w>=768){
+    document.querySelector('nav').classList.remove('closed')
+    document.querySelector('#closeNav .icon').classList.remove('flip')
   }
 }
 

@@ -222,6 +222,10 @@ nav{
     height: calc(100% - 90px);
     background: #FFF;
 
+    @media (max-width: 780px) {
+      border-right: 1px solid #ccc;
+    }
+
     ul {
       padding: 0;
       margin: 0;

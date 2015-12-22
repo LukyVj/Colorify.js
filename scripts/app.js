@@ -46,6 +46,7 @@ function isSmall(){
   var w = document.documentElement.clientWidth;
   if(w<=768){
     document.querySelector('nav').classList.add('closed')
+    document.querySelector('#closeNav .icon').classList.add('flip')
   }
 }
 

@@ -124,6 +124,15 @@ p a {
   text-decoration: none;
   padding-bottom: 0.1em; }
 
+.image-container {
+  display: inline-block;
+  padding: 0;
+  margin: 0; }
+
+img.colorify {
+  float: left;
+  width: 100%; }
+
 .btn {
   border: 1px solid transparent;
   border-radius: 4px;
@@ -244,6 +253,10 @@ nav .hero-header {
   background-image: linear-gradient(to right, #f19c40 20%, #e2544b 20%, #e2544b 40%, #b455b5 40%, #b455b5 60%, #3993e2 60%, #3993e2 80%, #11c966 80%, #11c966 100%);
   z-index: 3;
   top: 0; }
+  @media (max-width: 768px) {
+    header#header,
+    nav .hero-header {
+      border-right: 1px solid #CCC; } }
   header#header [class$="-block"],
   nav .hero-header [class$="-block"] {
     display: block;

@@ -92,6 +92,10 @@ nav .hero-header {
   z-index: 3;
   top: 0; 
 
+  @media (max-width: 768px) {
+    border-right: 1px solid #CCC;
+  }
+
 
 
   [class$="-block"] {

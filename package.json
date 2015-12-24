@@ -19,6 +19,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "browser-sync start --server --files='./*'"
   },
-  "author": "",
+  "author": "Lucas Bonomi <lucas.bonomi@gmail.com>",
   "license": "ISC"
 }

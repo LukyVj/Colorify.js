@@ -1,6 +1,6 @@
 
 # ![](http://puu.sh/m3sr4/73e8b2e9ef.png)
-[![Join the chat at https://gitter.im/LukyVj/Colorify.js](https://badges.gitter.im/LukyVj/Colorify.js.svg)](https://gitter.im/LukyVj/Colorify.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+Join the chat room on Gitter [![Join the chat at https://gitter.im/LukyVj/Colorify.js](https://badges.gitter.im/LukyVj/Colorify.js.svg)](https://gitter.im/LukyVj/Colorify.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 The simple, customizable, tiny javascript color extractor.
 
@@ -18,6 +18,10 @@ __The script works with ANY images format : png, jpeg, jpg, gif__
 
 --- 
 ### Installation
+#### With bower 
+`$ bower install colorifyjs`
+
+#### Regular install
 To install colorify, just download the script and load it at the end of your page
 ```js
     <script src="path/to/colorify.js"></script>

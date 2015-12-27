@@ -4,6 +4,13 @@ Join the chat room on Gitter [![Join the chat at https://gitter.im/LukyVj/Colori
 
 The simple, customizable, tiny javascript color extractor.
 
+---
+### Showcase 
+We'd love to see what you're creating with colorify.js ! 
+If you want to send your creations, and get featured on http://colorify.rocks and on the github repo, send the url in a comment on the issue [Community Showcase](https://github.com/LukyVj/Colorify.js/issues/23) ! 
+
+Be creative ! 
+
 --- 
 In summary, with Colorify.js, you can :
 
@@ -358,8 +365,3 @@ colorify({
 - __event__: The event to use to make the animation occur, of course the event will be attached to the trigger
 
 
-### Showcase 
-We'd love to see what you're creating with colorify.js ! 
-If you want to send your creations, and get featured on http://colorify.rocks and on the github repo, send the url in a comment on the issue [Community Showcase](https://github.com/LukyVj/Colorify.js/issues/23) ! 
-
-Be creative ! 

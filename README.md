@@ -1,8 +1,7 @@
 
 # ![](http://puu.sh/m3sr4/73e8b2e9ef.png)
-![](https://img.shields.io/badge/Version-1.0-blue.svg) [![Join the chat at https://gitter.im/LukyVj/Colorify.js](https://badges.gitter.im/LukyVj/Colorify.js.svg)](https://gitter.im/LukyVj/Colorify.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![](https://img.shields.io/badge/Version-1.0-blue.svg)](https://github.com/LukyVj/Colorify.js/releases/tag/v1.0.0) [![Join the chat at https://gitter.im/LukyVj/Colorify.js](https://badges.gitter.im/LukyVj/Colorify.js.svg)](https://gitter.im/LukyVj/Colorify.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Join the chat room on Gitter 
 
 The simple, customizable, tiny javascript color extractor.
 

@@ -366,3 +366,7 @@ colorify({
 - __event__: The event to use to make the animation occur, of course the event will be attached to the trigger
 
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/LukyVj/colorify.js/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+

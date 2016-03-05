@@ -1,14 +1,40 @@
 {
-  "name": "canvas",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "colorify.js",
+  "version": "1.0.1",
+  "license": "ISC",
+  "description": "The simple, customizable, tiny javascript color extractor.",
+  "repository": "LukyVj/Colorify.js",
+  "homepage": "http://colorify.rocks",
+  "main": "./scripts/colorify.js",
+  "author": {
+    "name": "Lucas Bonomi",
+    "email": "lucas.bonomi@gmail.com",
+    "url": "http://lucasbonomi.com"
+  },
+  "browser": {
+    "colorify": "./scripts/colorify.js"
+  },
+  "style": [
+    "./styles/colorify.css"
+  ],
+  "files": [
+    "./scripts/colorify.js",
+    "./scripts/colorify.min.js",
+    "./styles/colorify.css"
+  ],
+  "keywords": [
+    "color",
+    "colors",
+    "images",
+    "extract",
+    "extraction",
+    "gradients"
+  ],
   "dependencies": {
-    "browser-sync": "^2.9.11",
-    "gulp": "^3.9.0"
   },
   "devDependencies": {
     "browser-sync": "^2.9.11",
+    "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-exec": "^2.1.2",
     "gulp-rename": "^1.2.2",
@@ -18,7 +44,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "browser-sync start --server --files='./*'"
-  },
-  "author": "Lucas Bonomi <lucas.bonomi@gmail.com>",
-  "license": "ISC"
+  }
 }

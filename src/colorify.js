@@ -5,7 +5,7 @@ var colorify = function(args){
   _CONTAINER = args.container || 'colorify',
   _IMAGES = args.images || false,
   _ACCURACY = args.accuracy || 100,
-    
+
   _LAZYREVEAL = args.lazyReveal || false,
 
   _GRADIENT = args.gradient || false,
@@ -50,7 +50,7 @@ var colorify = function(args){
         var imContain = document.createElement('div');
         imContain.classList.add('image-container');
         imContain.setAttribute('style','padding: '+ _PADDING +'px;');
-        
+
         if(!_REVEAL_ON==false) {
           imContain.style.opacity='0';
           imContain.classList.add('to-reveal');
@@ -64,16 +64,16 @@ var colorify = function(args){
 
 
   var preIm = document.querySelectorAll('['+ _CONTAINER +'] img');
-  
+
   for(var i = 0, len = preIm.length; i < len; i++) {
     preIm[i].setAttribute(_ATTR,'');
     preIm[i].classList.add('colorify');
   }
-  
+
   var cf_item = document.querySelectorAll('['+ _ATTR +']'),
   cf_item_length = cf_item.length,
   cf_item_loaded = 0;
-  
+
   for(var i = 0, len = cf_item.length; i < len; i++) {
 
     cf_item[i].setAttribute(_ATTR ,'');
@@ -83,11 +83,11 @@ var colorify = function(args){
     var imContain = document.createElement('div');
     imContain.classList.add('image-container');
     imContain.setAttribute('style','padding: '+ _PADDING +'px;');
-    
+
     if(!_REVEAL_ON==false) {
       imContain.style.opacity='0';
       imContain.classList.add('to-reveal');
-    } 
+    }
 
     imContain.appendChild(cf_item[i])
 
@@ -97,7 +97,7 @@ var colorify = function(args){
   }
 
 
-  // If need to reveal 
+  // If need to reveal
   if(!_REVEAL_ON==false) {
     var toReveal = document.querySelectorAll('.to-reveal');
     document.querySelector(_REVEAL_ON_TRIGGER).addEventListener(_REVEAL_ON_EVENT, function(){
@@ -109,7 +109,7 @@ var colorify = function(args){
   }
 
 
-  // Get colors 
+  // Get colors
   setTimeout(function(){
 
     for(i=0; i < cf_item_length; i++) {
@@ -121,7 +121,7 @@ var colorify = function(args){
 
     function isLoaded(el, pos){
       var rgb = getAverageRGB(el);
-     
+
       if(_GRADIENT) {
 
         var gradient = 'rgb('+rgb[0].r+','+rgb[0].g+','+rgb[0].b+'), rgb('+rgb[1].r+','+rgb[1].g+','+rgb[1].b+')';
@@ -131,7 +131,7 @@ var colorify = function(args){
         el.parentNode.style.backgroundColor = 'rgb('+rgb[0].r+','+rgb[0].g+','+rgb[0].b+')';
       }
 
-      
+
       if(!_GIVE==false) {
         var tar = _TARGET.substring(0, 1);
         if (tar == '#' || tar == "." || tar == '*' || tar == "["){
@@ -145,7 +145,7 @@ var colorify = function(args){
         }
         if(_TARGET=='child') {
          el.childNode.setAttribute('style', _PROPERTY + ': rgb('+rgb[0].r+','+rgb[0].g+','+rgb[0].b+') !important');
-        } 
+        }
       }
 
      if(!_TRANSITION==false && !_DELAY==false || !_TRANSITION==false || !_DELAY==false ) {

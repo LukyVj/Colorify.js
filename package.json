@@ -1,26 +1,26 @@
 {
   "name": "colorify.js",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "license": "ISC",
   "description": "The simple, customizable, tiny javascript color extractor.",
   "repository": "LukyVj/Colorify.js",
   "homepage": "http://colorify.rocks",
-  "main": "./scripts/colorify.js",
+  "main": "scripts/colorify.js",
   "author": {
     "name": "Lucas Bonomi",
     "email": "lucas.bonomi@gmail.com",
     "url": "http://lucasbonomi.com"
   },
   "browser": {
-    "colorify": "./scripts/colorify.js"
+    "colorify": "scripts/colorify.js"
   },
   "style": [
-    "./styles/colorify.css"
+    "styles/colorify.css"
   ],
   "files": [
-    "./scripts/colorify.js",
-    "./scripts/colorify.min.js",
-    "./styles/colorify.css"
+    "scripts/colorify.js",
+    "scripts/colorify.min.js",
+    "styles/colorify.css"
   ],
   "keywords": [
     "color",

@@ -26,8 +26,12 @@ __The script works with ANY images format : png, jpeg, jpg, gif__
 
 --- 
 ### Installation
+
+#### With npm
+`npm install colorify.js`
+
 #### With bower 
-`$ bower install colorifyjs`
+`bower install colorifyjs`
 
 #### Regular install
 To install colorify, just download the script and load it at the end of your page

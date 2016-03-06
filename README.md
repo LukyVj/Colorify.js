@@ -33,17 +33,28 @@ __The script works with ANY images format : png, jpeg, jpg, gif__
 #### With bower 
 `bower install colorifyjs`
 
-#### Regular install
+#### Regular Setup
 To install colorify, just download the script and load it at the end of your page
-```js
+
+```html
     <script src="path/to/colorify.js"></script>
   </body>
 ```
 
-And add the [colorify.css](https://github.com/LukyVj/Colorify.js/blob/master/styles/colorify.css) to the head : 
+And add the [colorify.css](https://github.com/LukyVj/Colorify.js/blob/master/styles/colorify.css) to the head: 
+
 ```html
   <link rel="stylesheet" href="colorify.css">
 ```
+
+#### Browserify setup
+Just require colorify as any other CommonJS module after installing it via npm:
+
+```javascript
+var colorify = require('colorify');
+```
+
+In terms of CSS you have to decide whether you reference the CSS file as described above or use a tool like [parcelify](https://www.npmjs.com/package/parcelify) to bundle the CSS. 
 
 ### Basic config
 __Keep in mind that you have to host the images on your server in order to avoid CORS restrictions__

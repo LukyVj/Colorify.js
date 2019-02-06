@@ -1,8 +1,16 @@
+![](https://img.shields.io/badge/project-deprecated-red.svg) ![](https://img.shields.io/badge/status-unmaintaned-orange.svg)
 
 # ![](http://puu.sh/m3sr4/73e8b2e9ef.png)
-Join the chat room on Gitter [![Join the chat at https://gitter.im/LukyVj/Colorify.js](https://badges.gitter.im/LukyVj/Colorify.js.svg)](https://gitter.im/LukyVj/Colorify.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![npm version](https://img.shields.io/npm/v/colorify.js.svg?style=flat)](https://www.npmjs.org/package/colorify.js) [![Join the chat at https://gitter.im/LukyVj/Colorify.js](https://badges.gitter.im/LukyVj/Colorify.js.svg)](https://gitter.im/LukyVj/Colorify.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 The simple, customizable, tiny javascript color extractor.
+
+---
+### Showcase 
+We'd love to see what you're creating with colorify.js ! 
+If you want to send your creations, and get featured on http://colorify.rocks and on the github repo, send the url in a comment on the issue [Community Showcase](https://github.com/LukyVj/Colorify.js/issues/23) ! 
+
+Be creative ! 
 
 --- 
 In summary, with Colorify.js, you can :
@@ -18,20 +26,35 @@ __The script works with ANY images format : png, jpeg, jpg, gif__
 
 --- 
 ### Installation
-#### With bower 
-`$ bower install colorifyjs`
 
-#### Regular install
+#### With npm
+`npm install colorify.js`
+
+#### With bower 
+`bower install colorifyjs`
+
+#### Regular Setup
 To install colorify, just download the script and load it at the end of your page
-```js
+
+```html
     <script src="path/to/colorify.js"></script>
   </body>
 ```
 
-And add the [colorify.css](https://github.com/LukyVj/Colorify.js/blob/master/styles/colorify.css) to the head : 
+And add the [colorify.css](https://github.com/LukyVj/Colorify.js/blob/master/styles/colorify.css) to the head: 
+
 ```html
   <link rel="stylesheet" href="colorify.css">
 ```
+
+#### Browserify setup
+Just require colorify as any other CommonJS module after installing it via npm:
+
+```javascript
+var colorify = require('colorify');
+```
+
+In terms of CSS you have to decide whether you reference the CSS file as described above or use a tool like [parcelify](https://www.npmjs.com/package/parcelify) to bundle the CSS. 
 
 ### Basic config
 __Keep in mind that you have to host the images on your server in order to avoid CORS restrictions__
@@ -357,4 +380,8 @@ colorify({
 - __trigger__: The selector class, id, name or attribute that should trigger the reveal, by default the value is false
 - __event__: The event to use to make the animation occur, of course the event will be attached to the trigger
 
+
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/LukyVj/colorify.js/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 

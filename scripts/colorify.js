@@ -53,7 +53,8 @@
     }
     if (!_GIVE==false) {
       var _PROPERTY   = args.give.property || false,
-          _TARGET = args.give.target || false;
+          _TARGET = args.give.target || false,
+    		  _OPACITY = args.give.opacity || 1;
     }
     var scenes = document.querySelectorAll('['+ _CONTAINER +']');
      for(var i = 0, len = scenes.length; i < len; i++) {
@@ -162,14 +163,14 @@
           if (tar == '#' || tar == "." || tar == '*' || tar == "["){
             var to = document.querySelectorAll(_TARGET);
             for(var i = 0, len = to.length; i < len; i++) {
-             to[i].setAttribute('style', _PROPERTY + ': rgb('+rgb[0].r+','+rgb[0].g+','+rgb[0].b+')');
+             to[i].setAttribute('style', _PROPERTY + ': rgba('+rgb[0].r+','+rgb[0].g+','+rgb[0].b+","+_OPACITY+')');
             }
           }
           if(_TARGET=='parent') {
-            el.parentNode.parentNode.setAttribute('style', _PROPERTY + ': rgb('+rgb[0].r+','+rgb[0].g+','+rgb[0].b+') !important');
+            el.parentNode.parentNode.setAttribute('style', _PROPERTY + ': rgba('+rgb[0].r+','+rgb[0].g+','+rgb[0].b+","+_OPACITY+') !important');
           }
           if(_TARGET=='child') {
-           el.childNode.setAttribute('style', _PROPERTY + ': rgb('+rgb[0].r+','+rgb[0].g+','+rgb[0].b+') !important');
+           el.childNode.setAttribute('style', _PROPERTY + ': rgba('+rgb[0].r+','+rgb[0].g+','+rgb[0].b+","+_OPACITY+') !important');
           }
         }
 

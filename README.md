@@ -382,6 +382,10 @@ colorify({
 
 
 
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/LukyVj/Colorify.js.svg)](https://starchart.cc/LukyVj/Colorify.js)
+      
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/LukyVj/colorify.js/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
